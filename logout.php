@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ABDUL
- * Date: 9/15/2017
- * Time: 10:09 PM
- */
+    session_start();
+    session_destroy();
+    echo "<script>window.location='index.php';</script>";
+?>
