@@ -7,7 +7,11 @@
                     <div class="form-top">
                         <div class="form-top-left">
                             <h3><span><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span>Step 1 : Drop database 'services_hero'</h3>
-                            <p>if you click 'Next' ajax will run drop.php</p>
+                            <p>Please make sure your MySQL credentials:</p>
+                            <p>Mysql PORT:<mark>3306</mark></p>
+                            <p>USERNAME:<mark>root</mark></p>
+                            <p>PASSWORD:<mark> null </mark></p>
+                            <p>if you proceed ajax will drop your database and import new sql file</p>
                         </div>
                     </div>
                     <div class="form-bottom">
@@ -19,13 +23,15 @@
                         <div class="form-group" style="margin-bottom:3px;">
                             <div class="row">
                                 <div class="form-group col-md-9 col-sm-9">
-
+                                    <div id="div1"></div>
+                                    <div id="div2"></div>
                                 </div>
                             </div>
                         </div>
 
 
-                        <button type="button" class="btn btn-next">Drop</button>
+                        <button type="button" class="btn btn-next">Execute</button>
+                        <a href="../index.php" class="btn btn-info">Exit</a>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -36,7 +42,7 @@
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <button type="submit" class="btn">Export</button>
+                        <a href="../index.php" class="btn btn-next">Exit ; )</a>
                     </div>
                 </fieldset>
             </form>
@@ -370,17 +376,14 @@
 
         // next step
         $('.registration-form .btn-next').on('click', function () {
-            var parent_fieldset = $(this).parents('fieldset');
-            var next_step = true;
+            $.ajax({url: "drop.php", success: function(result){
+                $("#div1").html(result);
 
-            parent_fieldset.find('input[type="text"],input[type="email"]').each(function () {
-                if ($(this).val() == "") {
-                    $(this).addClass('input-error');
-                    next_step = false;
-                } else {
-                    $(this).removeClass('input-error');
-                }
-            });
+                $.ajax({url: "exe.php", success: function(result){
+                    $("#div2").html(result);
+                }});
+            }});
+
 
             if (next_step) {
                 parent_fieldset.fadeOut(400, function () {
@@ -390,24 +393,10 @@
 
         });
 
-        // previous step
-        $('.registration-form .btn-previous').on('click', function () {
-            $(this).parents('fieldset').fadeOut(400, function () {
-                $(this).prev().fadeIn();
-            });
-        });
-
-        // submit
         $('.registration-form').on('submit', function (e) {
-
-            $(this).find('input[type="text"],input[type="email"]').each(function () {
-                if ($(this).val() == "") {
-                    e.preventDefault();
-                    $(this).addClass('input-error');
-                } else {
-                    $(this).removeClass('input-error');
-                }
-            });
+            $.ajax({url: "exe.php", success: function(result){
+                $("#div1").html(result);
+            }});
 
         });
 

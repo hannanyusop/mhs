@@ -1,13 +1,21 @@
 <?php
-$link = mysql_connect('localhost', 'root', '');
-if (!$link) {
-    die('Could not connect: ' . mysql_error());
-}
 
-$sql = 'DROP DATABASE services_hero';
-if (mysql_query($sql, $link)) {
-    echo "Database my_db was successfully dropped\n";
-} else {
-    echo 'Error dropping database: ' . mysql_error() . "\n";
-}
+     $dbhost = 'localhost:3306';
+     $dbuser = 'root';
+     $dbpass = '';
+     $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+
+     if(! $conn ){
+         echo "<div id='div1'>Connected failure<br></div>";
+     }
+
+     echo "<div id='div1'>1.Connected successfully<br></div>";
+     $sql = "DROP DATABASE IF EXISTS services_hero";
+
+     if (mysqli_query($conn, $sql)) {
+         echo "<div id='div1'>2.Successfully drop and recreate database 'services_hero'<br></div>";
+     } else {
+         echo "<div id='div1'>\"Error: \" . mysqli_error($conn)<br></div>";
+     }
+
 ?>

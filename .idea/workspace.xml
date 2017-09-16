@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81d1eca9-83d1-43d9-a331-20810f583024" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/404.php" afterPath="$PROJECT_DIR$/404.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/controller/service.php" afterPath="$PROJECT_DIR$/admin/controller/service.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/controller/user.php" afterPath="$PROJECT_DIR$/admin/controller/user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/service-add.php" afterPath="$PROJECT_DIR$/admin/service-add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/service.php" afterPath="$PROJECT_DIR$/admin/service.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/header.php" afterPath="$PROJECT_DIR$/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-details.php" afterPath="$PROJECT_DIR$/service-details.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service.php" afterPath="$PROJECT_DIR$/service.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/connection.php" afterPath="$PROJECT_DIR$/connection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup/drop.php" afterPath="$PROJECT_DIR$/setup/drop.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup/index.php" afterPath="$PROJECT_DIR$/setup/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,90 +16,54 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="service-add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/service-add.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setup/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="46" column="39" lean-forward="false" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+            <state relative-caret-position="-1204">
+              <caret line="32" column="74" lean-forward="false" selection-start-line="32" selection-start-column="74" selection-end-line="32" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="service_hero.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setup/service_hero.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="26" column="11" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="26" selection-end-column="11" />
+            <state relative-caret-position="323">
+              <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connection.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/connection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="drop.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setup/drop.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding>
-                <marker date="1505540894553" expanded="true" signature="830:877" ph="SELECT * FRO... services" />
+                <marker date="1505568777634" expanded="true" signature="302:339" ph="DROP TABLE I... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="service.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="12" selection-end-column="6" />
-              <folding>
-                <marker date="1505541364836" expanded="true" signature="129:168" ph="SELECT * FRO... services" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service-details.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service-details.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="74" column="28" lean-forward="false" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
-              <folding>
-                <marker date="1505542894922" expanded="true" signature="81:104" ph="SELECT * FRO... services" />
-                <marker date="1505542894922" expanded="true" signature="81:115" ph="SELECT * FRO... services" />
-                <marker date="1505542894922" expanded="true" signature="81:116" ph="SELECT * FRO... services" />
-                <marker date="1505542894922" expanded="true" signature="2388:2654" ph="..." />
-                <marker date="1505542894922" expanded="true" signature="2461:2619" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="404.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/404.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-              <folding>
-                <element signature="n#style#0;n#!!top" expanded="false" />
-                <marker date="1505542993096" expanded="true" signature="436:449" ph="..." />
-                <marker date="1505542993096" expanded="true" signature="548:555" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="564:690" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="696:742" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="748:882" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="890:977" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="983:1013" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="1025:1052" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="1065:1093" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="1104:1158" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="1175:1483" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="1504:1548" ph="{...}" />
-                <marker date="1505542993096" expanded="true" signature="1572:1781" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="check-login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/check-login.php">
+      <file leaf-file-name="exe.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/setup/exe.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="39" />
-              <folding>
-                <marker date="1505534740732" expanded="true" signature="445:530" ph="SELECT * FRO... users" />
-                <marker date="1505534740732" expanded="true" signature="445:531" ph="SELECT * FRO... users" />
-              </folding>
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,6 +81,7 @@
       <find>input-group-addon</find>
       <find>Bordered Table</find>
       <find>suv</find>
+      <find>Dr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,13 +100,10 @@
         <option value="$PROJECT_DIR$/admin/404.php" />
         <option value="$PROJECT_DIR$/admin/user-add.php" />
         <option value="$PROJECT_DIR$/admin/user.php" />
-        <option value="$PROJECT_DIR$/connection.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/footer.php" />
         <option value="$PROJECT_DIR$/check-login.php" />
         <option value="$PROJECT_DIR$/service-order.php" />
-        <option value="$PROJECT_DIR$/setup/drop.php" />
-        <option value="$PROJECT_DIR$/setup/index.php" />
         <option value="$PROJECT_DIR$/admin/controller/user.php" />
         <option value="$PROJECT_DIR$/admin/service.php" />
         <option value="$PROJECT_DIR$/admin/controller/service.php" />
@@ -158,6 +113,10 @@
         <option value="$PROJECT_DIR$/service.php" />
         <option value="$PROJECT_DIR$/service-details.php" />
         <option value="$PROJECT_DIR$/404.php" />
+        <option value="$PROJECT_DIR$/setup/drop.php" />
+        <option value="$PROJECT_DIR$/connection.php" />
+        <option value="$PROJECT_DIR$/setup/index.php" />
+        <option value="$PROJECT_DIR$/setup/exe.php" />
       </list>
     </option>
   </component>
@@ -215,7 +174,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="setup" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,12 +287,12 @@
       <updated>1505436635104</updated>
       <workItem from="1505436637382" duration="3548000" />
       <workItem from="1505481240947" duration="19737000" />
-      <workItem from="1505528636757" duration="13603000" />
+      <workItem from="1505528636757" duration="17932000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36888000" />
+    <option name="totallyTimeSpent" value="41217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="916" extended-state="6" />
@@ -606,34 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup/drop.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="71" lean-forward="false" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/controller/user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="611">
@@ -701,17 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/check-login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="39" />
-          <folding>
-            <marker date="1505534740732" expanded="true" signature="445:530" ph="SELECT * FRO... users" />
-            <marker date="1505534740732" expanded="true" signature="445:531" ph="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -766,6 +686,59 @@
             <marker date="1505542993096" expanded="true" signature="1504:1548" ph="{...}" />
             <marker date="1505542993096" expanded="true" signature="1572:1781" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/check-login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="39" />
+          <folding>
+            <marker date="1505534740732" expanded="true" signature="445:530" ph="SELECT * FRO... users" />
+            <marker date="1505534740732" expanded="true" signature="445:531" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup/drop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <marker date="1505568777634" expanded="true" signature="302:339" ph="DROP TABLE I... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup/service_hero.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1204">
+          <caret line="32" column="74" lean-forward="false" selection-start-line="32" selection-start-column="74" selection-end-line="32" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup/exe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

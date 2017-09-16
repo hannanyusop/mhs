@@ -15,6 +15,6 @@ $dbname = "services_hero";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
+die("Connection failed: " . $conn->connect_error."<br><a href='setup/index.php'>Try setup database?</a> ");
 }
 
