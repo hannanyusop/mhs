@@ -13,7 +13,7 @@
                  <div class="col-sm-3">
                     <h4>Quick Links</h4>
                     <ul class="list-unstyled">
-                        <li><a href="rooms-tariff.php">Rooms & Tariff</a></li>        
+                        <li><a href="service.php">Rooms & Tariff</a></li>
                         <li><a href="introduction.php">Introduction</a></li>
                         <li><a href="gallery.php">Gallery</a></li>
                         <li><a href="tour.php">Tour Packages</a></li>
@@ -45,7 +45,7 @@
     <!--/.footer-bottom--> 
 </footer>
 
-<div class="text-center copyright">Powered by <a href="http://thebootstrapthemes.com">thebootstrapthemes.com</a></div>
+<div class="text-center copyright">Developed by <a href="http://pmu.edu.my">POLITEKNIK MUKAH, SARAWAK</a></div>
 
 <a href="#home" class="toTop scroll"><i class="fa fa-angle-up"></i></a>
 

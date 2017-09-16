@@ -36,12 +36,11 @@
     </ul>
     
 
-    </div>  
-    <div class="col-sm-3 col-md-2">
-      <div class="size-price">Size<span>44 sq</span></div>
     </div>
-    <div class="col-sm-3 col-md-2">
-      <div class="size-price">Price<span>$200.00</span></div>
+    <div class="row">
+        <div class="col-sm-4 col-md-3 col-lg-4">
+            <a href="service-order.php" class="btn btn-default btn-block btn-lg">ORDER NOW</a>
+        </div>
     </div>
   </div>
 </div>

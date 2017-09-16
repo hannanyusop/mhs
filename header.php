@@ -66,15 +66,15 @@
       
       <ul class="nav navbar-nav">        
         <li><a href="index.php">Home </a></li>
-        <li><a href="rooms-tariff.php">Rooms & Tariff</a></li>        
+        <li><a href="service.php">Services</a></li>
         <li><a href="introduction.php">Introduction</a></li>
         <li><a href="gallery.php">Gallery</a></li>
         <li><a href="contact.php">Contact</a></li>
 
         <?php if(isset($_SESSION['USERS'])){ ?>
-        <li><a href="login.php">Login</a></li>
-        <?php }else{ ?>
         <li><a href="logout.php">Logout</a></li>
+        <?php }else{ ?>
+        <li><a href="login.php">Login</a></li>
         <?php } ?>
       </ul>
     </div><!-- Wnavbar-collapse -->
