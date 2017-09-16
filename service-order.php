@@ -34,6 +34,7 @@
                     <h3>Reservation</h3>
                     <form role="form" action="controller/order.php" method="post" class="wowload fadeInRight">
                         <input type="hidden" name="action" value="add">
+                        <input type="hidden" name="service_id" value="<?=$_GET['id']?>">
                     <?php
                         $sql = "SELECT * FROM users WHERE id = $_SESSION[user_id]";
                         $result = mysqli_query($conn, $sql);
@@ -75,6 +76,9 @@
                                 </div>
                             </div>
                         </div>
+
+                         <input type="hidden" name="grand_price" value="21.00">
+
                         <div class="form-group">
                             <textarea name="user_note" class="form-control"  placeholder="Message" rows="4"></textarea>
                         </div>
