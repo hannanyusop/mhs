@@ -14,7 +14,7 @@
 
     //check if credentials in valid and users are not banned
 
-    $sql = "SELECT * FROM users WHERE email='".$email."' AND password='".$password."' AND status=0";
+    $sql = "SELECT * FROM users WHERE email='".$email."' AND password='".$password."' AND status=1";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -30,7 +30,11 @@
         if($_SESSION['level'] == 'ADMIN'){
             echo "<script>window.location='admin/index.php';</script>";
         }else{
-            echo "<script>window.location='user/index.php';</script>";
+            if(isset($_SESSION['service'])){
+                echo "<script>alert('Now you can proceed for your order');window.location='service-order.php?id=$_SESSION[service]';</script>";
+            }else{
+                echo "<script>window.location='index.php';</script>";
+            }
         }
 
     } else{

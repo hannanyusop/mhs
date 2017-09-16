@@ -71,7 +71,7 @@
         <li><a href="gallery.php">Gallery</a></li>
         <li><a href="contact.php">Contact</a></li>
 
-        <?php if(isset($_SESSION['USERS'])){ ?>
+        <?php if(isset($_SESSION['level'])){ ?>
         <li><a href="logout.php">Logout</a></li>
         <?php }else{ ?>
         <li><a href="login.php">Login</a></li>

@@ -1,5 +1,14 @@
 <?php include 'header.php';?>
+<?php
+    //unset this session nto prevent page redirect looping
+    unset($_SESSION["service"]);
+    if(isset($_SESSION['level'])){
 
+    }else{
+        $_SESSION['service'] = 'TEST';
+        echo "<script>alert('You need to login before you can order service.');window.location='login.php'</script>";
+    }
+?>
 <div class="container">
 
 <h1 class="title">Order</h1>
