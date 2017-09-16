@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once ('connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,13 +40,6 @@
 </head>
 
 <body id="home">
-
-  <form class="navbar-form navbar-left newsletter" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Enter Your Email Id Here">
-        </div>
-        <button type="submit" class="btn btn-inverse">Subscribe</button>
-    </form>
 
 <!-- header -->
 <nav class="navbar  navbar-default" role="navigation">

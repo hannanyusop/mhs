@@ -1,51 +1,82 @@
 <?php include 'header.php';?>
+<?php
+    if(isset($_GET['id'])) {
+        $sql = "SELECT * FROM services WHERE id = $_GET[id]";
+        $result = mysqli_query($conn, $sql);
 
-<div class="container">
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
 
-<h1 class="title">Luxirious Suites</h1>
+                <div class="container">
+
+                    <h1 class="title"><?=$row['title'] ?></h1>
 
 
+                    <!-- RoomDetails -->
+                    <div id="RoomDetails" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active"><img src="images/photos/8.jpg" class="img-responsive" alt="slide">
+                            </div>
+                            <div class="item  height-full"><img src="images/photos/9.jpg" class="img-responsive"
+                                                                alt="slide">
+                            </div>
+                            <div class="item  height-full"><img src="images/photos/10.jpg" class="img-responsive"
+                                                                alt="slide">
+                            </div>
+                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#RoomDetails" role="button" data-slide="prev"><i
+                                    class="fa fa-angle-left"></i></a>
+                        <a class="right carousel-control" href="#RoomDetails" role="button" data-slide="next"><i
+                                    class="fa fa-angle-right"></i></a>
+                    </div>
+                    <!-- RoomCarousel-->
 
- <!-- RoomDetails -->
-            <div id="RoomDetails" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                <div class="item active"><img src="images/photos/8.jpg" class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/9.jpg"  class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/10.jpg"  class="img-responsive" alt="slide"></div>
+                    <div class="room-features spacer">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5">
+                                <p><?=$row['description'] ?></p>
+                            </div>
+                            <div class="col-sm-6 col-md-3 amenitites">
+                                <h3>Details</h3>
+                                <ul>
+                                    <li>Basic Price : RM<?=$row['basic_price'] ?></li>
+                                    <li>Qouta :<?=$row['qouta'] ?></li>
+                                </ul>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4 col-md-3 col-lg-4">
+                                    <a href="service-order.php" class="btn btn-default btn-block btn-lg">ORDER NOW</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
-                <!-- Controls -->
-                <a class="left carousel-control" href="#RoomDetails" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                <a class="right carousel-control" href="#RoomDetails" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-            </div>
-  <!-- RoomCarousel-->
 
-<div class="room-features spacer">
-  <div class="row">
-    <div class="col-sm-12 col-md-5"> 
-    <p>Space in your house How to sell faster than your neighbors How to make a strategic use. To discourage you by telling. To discourage you by telling. I m going to outline 14 different ways that I ve found you. The real goal of any talk or speech. The real goal of any talk or speech. I m going to outline 14 different ways that I ve found you. The real goal of any talk or speech. I m going to outline 14 different ways that I ve found you. The real goal of any talk or speech. To discourage you by telling. To discourage you by telling. Space in your house How to sell faster than your neighbors How to make a strategic use. The real goal of any talk or speech.</p>
-    <p>By Learning Ways To Become Peaceful. One of the greatest barriers to making the sale is your prospect's natural. Don't stubbornly. Don't stubbornly. Don't stubbornly. -And Gain Power By Learning Ways To Become Peaceful. </p>
-    </div>
-    <div class="col-sm-6 col-md-3 amenitites"> 
-    <h3>Amenitites</h3>    
-    <ul>
-      <li>One of the greatest barriers to making the sale is your prospect.</li>
-      <li>Principle to work to make more money while having more fun.</li>
-      <li>Unlucky people. Don't stubbornly.</li>
-      <li>Principle to work to make more money while having more fun.</li>
-      <li>Space in your house How to sell faster than your neighbors</li>
-    </ul>
-    
-
-    </div>
-    <div class="row">
-        <div class="col-sm-4 col-md-3 col-lg-4">
-            <a href="service-order.php" class="btn btn-default btn-block btn-lg">ORDER NOW</a>
-        </div>
-    </div>
-  </div>
-</div>
-                     
-
-
-</div>
+                <?php
+            }
+        } else {
+            //if no service was found
+            $_SESSION['error'] = [
+                'code' => '404',
+                'msg' => 'SERVICE NOT FOUND OR DELTED',
+                'url' => 'service.php'
+            ];
+            echo "<script>window.location='404.php'</script>";
+        }
+    }else{
+        //if url parameter is empty
+        $_SESSION['error'] = [
+            'code' => '404',
+            'msg' => 'PAGE NOT FOUND',
+            'url' => 'service.php'
+        ];
+        echo "<script>window.location='404.php'</script>";
+    }
+?>
 <?php include 'footer.php';?>

@@ -26,7 +26,7 @@
       <div class="box">
           <div class="box-body">
                 <form action="controller/service.php" method="post">
-                    <input type="hidden" name="function" value="add">
+                    <input type="hidden" name="action" value="add">
                     <div class="row">
 
                         <div class="box-body col-lg-6">
@@ -35,7 +35,7 @@
 
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" name="name" class="form-control" required>
+                                <input type="text" name="title" class="form-control" required>
                             </div>
 
                             <div class="form-group">

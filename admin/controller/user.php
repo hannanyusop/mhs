@@ -3,6 +3,7 @@
     //receive any action parameter from POST or GET
     if(isset($_POST['action'])||isset($_GET['action']))
     {
+        $model = 'user';
         if(isset($_POST['action'])){
             $action =$_POST['action'];
         } else{
@@ -16,7 +17,7 @@
                         VALUES ('$_POST[first_name]','$_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[level]','$_POST[status]','$_POST[password]','$_POST[address1]','$_POST[address2]','$_POST[city]','$_POST[postcode]','$_POST[states]','$_POST[country]')";
 
                 if (mysqli_query($conn, $sql)) {
-                    echo "<script>alert('Successfully added!');window.location='../user-$action.php';</script>";
+                    echo "<script>alert('Successfully added!');window.location='../$model-$action.php';</script>";
                 } else {
                     //echo "<script>alert('Error while inserting data!');//window.location='../user-$action.php';</script>";
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -30,9 +31,9 @@
                 break;
 
             default :
-                echo "<script>window.location='../404.php'</script>";
+                echo "<script>window.location='404.php'</script>";
         }
     }else{
-        echo "<script>window.location='../404.php'</script>";
+        echo "<script>window.location='404.php'</script>";
     }
 ?>

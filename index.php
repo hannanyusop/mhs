@@ -1,8 +1,5 @@
 <?php include 'header.php';?>
 
-
-
-
 <!-- banner -->
 <div class="banner">    	   
     <img src="images/photos/banner.jpg"  class="img-responsive" alt="slide">
@@ -22,39 +19,12 @@
 <div class="spacer services wowload fadeInUp">
 <div class="container">
     <div class="row">
-        <div class="col-sm-4">
-            <!-- RoomCarousel -->
-            <div id="RoomCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                <div class="item active"><img src="images/photos/8.jpg" class="img-responsive" alt="slide"></div>                
-                <div class="item  height-full"><img src="images/photos/9.jpg"  class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/10.jpg"  class="img-responsive" alt="slide"></div>
-                </div>
-                <!-- Controls -->
-                <a class="left carousel-control" href="#RoomCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                <a class="right carousel-control" href="#RoomCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-            </div>
-            <!-- RoomCarousel-->
-            <div class="caption">Rooms<a href="service.php" class="pull-right"><i class="fa fa-edit"></i></a></div>
-        </div>
 
-
-        <div class="col-sm-4">
-            <!-- RoomCarousel -->
-            <div id="TourCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                <div class="item active"><img src="images/photos/6.jpg" class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/3.jpg"  class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/4.jpg"  class="img-responsive" alt="slide"></div>
-                </div>
-                <!-- Controls -->
-                <a class="left carousel-control" href="#TourCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                <a class="right carousel-control" href="#TourCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-            </div>
-            <!-- RoomCarousel-->
-            <div class="caption">Tour Packages<a href="gallery.php" class="pull-right"><i class="fa fa-edit"></i></a></div>
-        </div>
-
+        <?php
+            $sql = "SELECT * FROM services ORDER BY id DESC LIMIT 3";
+            $result = mysqli_query($conn, $sql);
+            while($row = mysqli_fetch_assoc($result)) {
+         ?>
 
         <div class="col-sm-4">
             <!-- RoomCarousel -->
@@ -69,9 +39,24 @@
                 <a class="right carousel-control" href="#FoodCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
             </div>
             <!-- RoomCarousel-->
-            <div class="caption">Food and Drinks<a href="gallery.php" class="pull-right"><i class="fa fa-edit"></i></a></div>
+            <div class="caption">
+                <?=$row['title'] ?> <span class="label label-primary">RM<?= $row['basic_price'] ?></span>
+                <a href="gallery.php" class="pull-right"><i class="fa fa-edit"></i></a>
+            </div>
         </div>
+
+         <?php } ?>
+
     </div>
+
+    <div class="text-center">
+        <ul class="pagination">
+            <li class="disabled"><a href="#">«</a></li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li><a href="service.php">See All ..</a></li>
+        </ul>
+    </div>
+
 </div>
 </div>
 <!-- services -->

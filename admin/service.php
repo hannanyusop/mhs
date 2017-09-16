@@ -52,12 +52,13 @@
                                       $sql = "SELECT * FROM services";
                                       $result = mysqli_query($conn, $sql);
                                       while($row = mysqli_fetch_assoc($result)) {
-
-                                          echo "<td>$row[name]</td>";
+                                          echo "<tr>";
+                                          echo "<td>$row[title]</td>";
                                           echo "<td>$row[description]</td>";
                                           echo "<td>$row[basic_price]</td>";
                                           echo "<td>".$status_label[$row['status']]."</td>";
-                                          echo"<td><a href='user-edit.php?id=$row[id]' class='btn btn-sm btn-info''>View</a></td>";
+                                          echo "<td><a href='user-edit.php?id=$row[id]' class='btn btn-sm btn-info''>View</a></td>";
+                                          echo "</tr>";
                                       }
 
                                   ?>
