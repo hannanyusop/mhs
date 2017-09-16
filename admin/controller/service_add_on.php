@@ -13,11 +13,11 @@
         switch ($action) {
             case 'add' :
 
-                $sql = "INSERT INTO services (title,description,basic_price,qouta,status) 
-                        VALUES ('$_POST[title]','$_POST[description]','$_POST[basic_price]','$_POST[qouta]','$_POST[status]')";
+                $sql = "INSERT INTO services_add_on (service_id,title,price,status) 
+                        VALUES ('$_POST[service_id]','$_POST[title]','$_POST[price]','1')";
 
                 if (mysqli_query($conn, $sql)) {
-                    echo "<script>alert('Successfully added!');window.location='../$model-$action.php';</script>";
+                    echo "<script>alert('Successfully added!');window.location='../service-view.php?id=$_POST[service_id]';</script>";
                 } else {
                     //echo "<script>alert('Error while inserting data!');//window.location='../user-$action.php';</script>";
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -29,7 +29,8 @@
                 $sql = "UPDATE services SET title='$_POST[title]',description='$_POST[description]',basic_price='$_POST[basic_price]',qouta='$_POST[qouta]',status='$_POST[status]' WHERE id='$_POST[id]'";
 
                 if (mysqli_query($conn, $sql)) {
-                    echo "<script>alert('Successfully updated!');window.location='../$model-view.php?id=$_POST[id]';</script>";
+                    $action = 'action';
+                    echo "<script>alert('Successfully updated!');window.location='../$model-$action.php?id=$_POST[id]';</script>";
                 } else {
                     //echo "<script>alert('Error while inserting data!');//window.location='../user-$action.php';</script>";
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);

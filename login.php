@@ -7,7 +7,7 @@
                     <div class="cont_ba_opcitiy">
 
                         <h2>LOGIN</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Already have Account? Sign In now.</p>
                         <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
                         <h2>SIGN UP</h2>
 
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Come and join us. <b>It's free</b>!</p>
 
                         <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
                     </div>
@@ -35,23 +35,24 @@
                     <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d" alt="" />
                 </div>
                 <form action="check-login.php" method="post" class="cont_form_login">
-                    <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons"></i></a>
+                    <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons"></i></a>
                     <h2>LOGIN</h2>
                     <input type="text" name="email" placeholder="Email" />
                     <input type="password" name="password" placeholder="Password" />
                     <button type="submit" class="btn_login" onclick="cambiar_login()">LOGIN</button>
                 </form>
 
-                <div class="cont_form_sign_up">
-                    <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons"></i></a>
+                <form action="controller/user.php" method="post" class="cont_form_sign_up">
+                    <input type="hidden" name="action" value="register">
+                    <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons"></i></a>
                     <h2>SIGN UP</h2>
-                    <input type="text" placeholder="Email" />
-                    <input type="text" placeholder="User" />
-                    <input type="password" placeholder="Password" />
-                    <input type="password" placeholder="Confirm Password" />
-                    <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <input type="password" name="password1" id="confirm_password" placeholder="Confirm Password" required>
+                    <br><span id='message'></span></br>
+                    <button type="submit" class="btn_sign_up" id="reg-submit" onclick="cambiar_sign_up()">SIGN UP</button>
 
-                </div>
+                </form>
 
             </div>
 
@@ -411,11 +412,8 @@
         margin-left: 30px;
     }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-    /* ------------------------------------ Click on login and Sign Up to  changue and view the effect
-     ---------------------------------------
-     */
-
     function cambiar_login() {
         document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";
         document.querySelector('.cont_form_login').style.display = "block";
@@ -456,6 +454,16 @@
         },500);
 
     }
+
+    $('#password, #confirm_password').on('keyup', function () {
+        if($('#password').val() == ""){
+            $('#message').html('Please insert password!').css('color', 'red');
+        }
+        else if ($('#password').val() == $('#confirm_password').val()) {
+            $('#message').html('Matching').css('color', 'green');
+        } else
+            $('#message').html('Not Matching').css('color', 'red');
+    });
 
 
 

@@ -54,10 +54,10 @@
                                       while($row = mysqli_fetch_assoc($result)) {
                                           echo "<tr>";
                                           echo "<td>$row[title]</td>";
-                                          echo "<td>$row[description]</td>";
+                                          echo "<td>".mb_strimwidth($row['description'], 0, 40, '...')."</td>";
                                           echo "<td>$row[basic_price]</td>";
                                           echo "<td>".$status_label[$row['status']]."</td>";
-                                          echo "<td><a href='user-edit.php?id=$row[id]' class='btn btn-sm btn-info''>View</a></td>";
+                                          echo "<td><a href='service-view.php?id=$row[id]' class='btn btn-sm btn-info''>View</a></td>";
                                           echo "</tr>";
                                       }
 

@@ -22,13 +22,15 @@ CREATE TABLE IF NOT EXISTS `order` (
   `user_id` int(11) NOT NULL DEFAULT 0,
   `service_id` int(11) NOT NULL DEFAULT 0,
   `services_add_on_id` int(11) NOT NULL DEFAULT 0,
-  `datetime` datetime NOT NULL,
-  `new_datetime` datetime NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `new_date` date NOT NULL,
+  `new_time` time NOT NULL,
   `user_note` longtext NOT NULL,
-  `admin_note` longtext NOT NULL DEFAULT '0',
-  `grand_price` float(10,2) NOT NULL DEFAULT 0.00,
-  `tax_price` float(10,2) NOT NULL DEFAULT 0.00,
-  `status` int(11) NOT NULL DEFAULT 0,
+  `admin_note` longtext NOT NULL,
+  `grand_price` float(10,2) NOT NULL,
+  `tax_price` float(10,2) NOT NULL,
+  `status` int(11) NOT NULL,
   `completed_datetime` datetime NOT NULL,
   `payment` varchar(255) NOT NULL,
   `payment_attachment` varchar(255) NOT NULL,
@@ -49,66 +51,77 @@ CREATE TABLE IF NOT EXISTS `order` (
 -- Dumping structure for table services_hero.services
 CREATE TABLE IF NOT EXISTS `services` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT '0',
+  `title` varchar(255) DEFAULT '0',
   `description` longtext DEFAULT '0',
   `basic_price` float(10,2) DEFAULT 0.00,
-  `kouta` varchar(255) DEFAULT '0',
+  `qouta` varchar(255) DEFAULT '0',
   `status` varchar(255) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table services_hero.services: ~1 rows (approximately)
+-- Dumping data for table services_hero.services: ~4 rows (approximately)
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
-INSERT INTO `services` (`id`, `name`, `description`, `basic_price`, `kouta`, `status`) VALUES
-	(1, 'MAILD', 'LALAAL', 2.00, '1', '1');
+INSERT INTO `services` (`id`, `title`, `description`, `basic_price`, `qouta`, `status`) VALUES
+	(1, 'MAID SEPARUH MASA', '<p><strong>Hannan adalah:</strong></p>\r\n\r\n<ul>\r\n	<li><strong>Macho</strong></li>\r\n	<li><strong>Kacak</strong></li>\r\n	<li><strong>handal</strong></li>\r\n	<li>ramai peminat</li>\r\n	<li>&nbsp;</li>\r\n</ul>\r\n', 250.00, '10', '1'),
+	(2, 'HP REPAIR', 'APA AJA', 120.00, '10', '1'),
+	(3, 'PENGGALI KUBUR', '-Taat menggali kubur', 150.00, '1', '1'),
+	(4, 'TUKANG MASAK', '-masakan kampung ala-alalalal', 10.00, '10', '1');
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 
 -- Dumping structure for table services_hero.services_add_on
 CREATE TABLE IF NOT EXISTS `services_add_on` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `service_id` int(11) DEFAULT 0,
-  `name` varchar(255) DEFAULT '0',
+  `title` varchar(255) DEFAULT '0',
   `price` float(10,2) DEFAULT 0.00,
   `kouta` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `FK__services` (`service_id`),
   CONSTRAINT `FK__services` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table services_hero.services_add_on: ~0 rows (approximately)
+-- Dumping data for table services_hero.services_add_on: ~5 rows (approximately)
 /*!40000 ALTER TABLE `services_add_on` DISABLE KEYS */;
+INSERT INTO `services_add_on` (`id`, `service_id`, `title`, `price`, `kouta`, `status`) VALUES
+	(1, 2, 'URUT', 10.00, NULL, 1),
+	(2, 2, 'superuser', 100.00, NULL, 1),
+	(3, 2, '2', 1.00, NULL, 1),
+	(4, 2, 'CUCI KRETA', 32.00, NULL, 1),
+	(5, 2, 'Apa-apa lah', 2.50, NULL, 1);
 /*!40000 ALTER TABLE `services_add_on` ENABLE KEYS */;
 
 -- Dumping structure for table services_hero.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) NOT NULL DEFAULT '0',
-  `last_name` varchar(255) NOT NULL DEFAULT '0',
-  `email` varchar(255) NOT NULL DEFAULT '0',
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) NOT NULL DEFAULT '0',
-  `ic` varchar(255) NOT NULL DEFAULT '0',
-  `address1` varchar(255) NOT NULL DEFAULT '0',
-  `address2` varchar(255) NOT NULL DEFAULT '0',
-  `city` varchar(255) NOT NULL DEFAULT '0',
-  `postcode` varchar(255) NOT NULL DEFAULT '0',
-  `states` varchar(255) NOT NULL DEFAULT '0',
-  `country` varchar(255) NOT NULL DEFAULT '0',
-  `status` varchar(255) NOT NULL DEFAULT '0',
-  `banned_notes` varchar(255) NOT NULL DEFAULT '0',
-  `level` varchar(255) NOT NULL DEFAULT '0',
+  `phone` varchar(255) DEFAULT NULL,
+  `ic` varchar(255) DEFAULT NULL,
+  `address1` varchar(255) DEFAULT NULL,
+  `address2` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `postcode` varchar(255) DEFAULT NULL,
+  `states` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT '1',
+  `banned_notes` varchar(255) DEFAULT NULL,
+  `level` varchar(255) DEFAULT NULL,
   `default` int(11) NOT NULL DEFAULT 0,
   `modified` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
--- Dumping data for table services_hero.users: ~2 rows (approximately)
+-- Dumping data for table services_hero.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `ic`, `address1`, `address2`, `city`, `postcode`, `states`, `country`, `status`, `banned_notes`, `level`, `default`, `modified`, `created`) VALUES
-	(2, 'admin', 'acc', 'test@gmail.com', '1', '0124387464', '4874239873', 'jalan 1', 'rumah 2', 'MUKAH', '98700', '0', 'MALAYSIA', '1', '0', 'ADMIN', 1, '2017-09-16 11:41:31', '2017-09-15 09:14:23'),
-	(3, 'hannan', 'yusop', 'nan_s96@yahoo.com', '1', '105960585', '0', 'jalan pandaruan', '11', 'MUKAH', '98700', 'SARAWAK', 'MALAYSIA', '1', '0', 'USER', 0, '2017-09-16 11:54:56', '2017-09-16 02:48:45');
+	(2, 'admin', 'acc', 'test@gmail.com', '1', '0124387464', '4874239873', 'jalan 1', 'rumah 2', 'MUKAH', '98700', '0', 'MALAYSIA', '1', '0', 'ADMIN', 1, '2017-09-16 22:16:44', '2017-09-15 09:14:23'),
+	(3, 'hannan', 'yusop', 'nan_s96@yahoo.com', '1', '105960585', '0', 'jalan pandaruan', '11', 'MUKAH', '98700', 'SARAWAK', 'MALAYSIA', '1', '0', 'USER', 0, '2017-09-16 11:54:56', '2017-09-16 02:48:45'),
+	(11, NULL, NULL, 'hannanyusop@lynk.my', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, 'USER', 0, '2017-09-16 23:29:31', '2017-09-16 23:29:31');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

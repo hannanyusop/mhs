@@ -21,6 +21,7 @@
 
         while($row = mysqli_fetch_assoc($result)) {
 
+            $_SESSION['user_id'] = $row['id'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['level'] = $row['level'];
             $_SESSION['first_name'] = $row['first_name'];

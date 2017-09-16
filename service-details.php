@@ -49,7 +49,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-4 col-md-3 col-lg-4">
-                                    <a href="service-order.php" class="btn btn-default btn-block btn-lg">ORDER NOW</a>
+                                    <a href="service-order.php?id=<?=$row['id']?>" class="btn btn-default btn-block btn-lg">ORDER NOW</a>
                                 </div>
                             </div>
                         </div>
