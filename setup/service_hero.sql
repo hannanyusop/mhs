@@ -107,8 +107,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table services_hero.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `ic`, `address1`, `address2`, `city`, `postcode`, `states`, `country`, `status`, `banned_notes`, `level`, `default`, `modified`, `created`) VALUES
-	(2, 'admin', 'acc', 'test@gmail.com', '1', '0124387464', '4874239873', 'jalan 1', 'rumah 2', 'MUKAH', '98700', '0', 'MALAYSIA', '0', '0', 'ADMIN', 1, '2017-09-16 02:20:24', '2017-09-15 09:14:23'),
-	(3, 'hannan', 'yusop', 'nan_s96@yahoo.com', '11', '105960585', '0', 'jalan pandaruan', '11', 'MUKAH', '98700', 'SARAWAK', 'MALAYSIA', '2', '0', 'USER', 0, '2017-09-16 02:50:13', '2017-09-16 02:48:45');
+	(2, 'admin', 'acc', 'test@gmail.com', '1', '0124387464', '4874239873', 'jalan 1', 'rumah 2', 'MUKAH', '98700', '0', 'MALAYSIA', '1', '0', 'ADMIN', 1, '2017-09-16 11:41:31', '2017-09-15 09:14:23'),
+	(3, 'hannan', 'yusop', 'nan_s96@yahoo.com', '1', '105960585', '0', 'jalan pandaruan', '11', 'MUKAH', '98700', 'SARAWAK', 'MALAYSIA', '1', '0', 'USER', 0, '2017-09-16 11:54:56', '2017-09-16 02:48:45');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
