@@ -16,24 +16,24 @@
 CREATE DATABASE IF NOT EXISTS `services_hero` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `services_hero`;
 
--- Dumping structure for table services_hero.order
-CREATE TABLE IF NOT EXISTS `order` (
-  `id` int(11) NOT NULL,
+-- Dumping structure for table services_hero.orders
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT 0,
   `service_id` int(11) NOT NULL DEFAULT 0,
   `services_add_on_id` int(11) NOT NULL DEFAULT 0,
   `date` date NOT NULL,
   `time` time NOT NULL,
-  `new_date` date NOT NULL,
-  `new_time` time NOT NULL,
-  `user_note` longtext NOT NULL,
-  `admin_note` longtext NOT NULL,
+  `new_date` date DEFAULT NULL,
+  `new_time` time DEFAULT NULL,
+  `user_note` longtext DEFAULT NULL,
+  `admin_note` longtext DEFAULT NULL,
   `grand_price` float(10,2) NOT NULL,
-  `tax_price` float(10,2) NOT NULL,
-  `status` int(11) NOT NULL,
-  `completed_datetime` datetime NOT NULL,
-  `payment` varchar(255) NOT NULL,
-  `payment_attachment` varchar(255) NOT NULL,
+  `tax_price` float(10,2) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `completed_datetime` datetime DEFAULT NULL,
+  `payment` varchar(255) DEFAULT NULL,
+  `payment_attachment` varchar(255) DEFAULT NULL,
   `rating` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `FK_order_users` (`user_id`),
@@ -42,11 +42,13 @@ CREATE TABLE IF NOT EXISTS `order` (
   CONSTRAINT `FK_order_services` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_order_services_add_on` FOREIGN KEY (`services_add_on_id`) REFERENCES `services_add_on` (`id`),
   CONSTRAINT `FK_order_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table services_hero.order: ~0 rows (approximately)
-/*!40000 ALTER TABLE `order` DISABLE KEYS */;
-/*!40000 ALTER TABLE `order` ENABLE KEYS */;
+-- Dumping data for table services_hero.orders: ~1 rows (approximately)
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` (`id`, `user_id`, `service_id`, `services_add_on_id`, `date`, `time`, `new_date`, `new_time`, `user_note`, `admin_note`, `grand_price`, `tax_price`, `status`, `completed_datetime`, `payment`, `payment_attachment`, `rating`) VALUES
+	(1, 3, 2, 3, '2017-09-21', '13:00:00', NULL, NULL, '[po[po', NULL, 21.00, NULL, 1, NULL, NULL, NULL, 0);
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Dumping structure for table services_hero.services
 CREATE TABLE IF NOT EXISTS `services` (
@@ -86,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `services_add_on` (
 INSERT INTO `services_add_on` (`id`, `service_id`, `title`, `price`, `kouta`, `status`) VALUES
 	(1, 2, 'URUT', 10.00, NULL, 1),
 	(2, 2, 'superuser', 100.00, NULL, 1),
-	(3, 2, '2', 1.00, NULL, 1),
+	(3, 2, 'CUCI KOLAM', 1.00, NULL, 1),
 	(4, 2, 'CUCI KRETA', 32.00, NULL, 1),
 	(5, 2, 'Apa-apa lah', 2.50, NULL, 1);
 /*!40000 ALTER TABLE `services_add_on` ENABLE KEYS */;
@@ -121,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `ic`, `address1`, `address2`, `city`, `postcode`, `states`, `country`, `status`, `banned_notes`, `level`, `default`, `modified`, `created`) VALUES
 	(2, 'admin', 'acc', 'test@gmail.com', '1', '0124387464', '4874239873', 'jalan 1', 'rumah 2', 'MUKAH', '98700', '0', 'MALAYSIA', '1', '0', 'ADMIN', 1, '2017-09-16 22:16:44', '2017-09-15 09:14:23'),
 	(3, 'hannan', 'yusop', 'nan_s96@yahoo.com', '1', '105960585', '0', 'jalan pandaruan', '11', 'MUKAH', '98700', 'SARAWAK', 'MALAYSIA', '1', '0', 'USER', 0, '2017-09-16 11:54:56', '2017-09-16 02:48:45'),
-	(11, NULL, NULL, 'hannanyusop@lynk.my', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, 'USER', 0, '2017-09-16 23:29:31', '2017-09-16 23:29:31');
+	(11, 'ABDUL', 'HANNAN', 'hannanyusop@lynk.my', '1', '0105960586', NULL, 'LOT 89,ANGERIK 1', 'SAUJANA UTAMA 1', 'MUKAH', '47000', 'SARAWAK', 'MALAYSIA', '2', NULL, 'USER', 0, '2017-09-17 03:41:04', '2017-09-16 23:29:31');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

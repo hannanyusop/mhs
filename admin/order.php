@@ -7,7 +7,7 @@
 <?php include_once('aside.php'); ?>
 <?php
     $status_label = [
-        1 => '<span class="label label-warning">Inactive</span>',
+        1 => '<span class="label label-warning">Pending</span>',
         2 => '<span class="label label-success">Active</span>',
         3 => '<span class="label label-danger">Banned</span>',
     ];
@@ -21,8 +21,8 @@
         <small>Version 2.0</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-users"></i> Users</a></li>
-        <li class="active">List</li>
+        <li><a href="#"><i class="fa fa-users"></i> Orders</a></li>
+        <li class="active">Pending</li>
       </ol>
     </section>
 
@@ -33,7 +33,7 @@
 
                   <div class="box">
                       <div class="box-header">
-                          <h3 class="box-title">All Users</h3>
+                          <h3 class="box-title">All Orders</h3>
                       </div>
                       <!-- /.box-header -->
                       <div class="box-body">
@@ -41,24 +41,24 @@
                               <thead>
                               <tr>
                                   <th>Name</th>
-                                  <th>Email</th>
-                                  <th>Phone number</th>
+                                  <th>Service</th>
+                                  <th>Date Requested</th>
                                   <th>Status</th>
                                   <th>Action</th>
                               </tr>
                               </thead>
                                   <tbody>
                                   <?php
-                                      $sql = "SELECT * FROM users WHERE level = 'USER'";
-                                      $result = mysqli_query($conn, $sql);
+                                      $sql = "SELECT * FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id";
+
+                                  $result = mysqli_query($conn, $sql);
                                       while($row = mysqli_fetch_assoc($result)) {
-                                          echo "<tr>";
-                                          echo "<td>".$row['first_name']." ".$row['last_name']."</td>";
-                                          echo "<td>$row[email]</td>";
-                                          echo "<td>$row[phone]</td>";
+
+                                          echo "<td>".$row['first_name']."</td>";
+                                          echo "<td>".$row['title']."</td>";
+                                          echo "<td>".$row['time'].' '.$row['date']."</td>";
                                           echo "<td>".$status_label[$row['status']]."</td>";
-                                          echo "<td><a href='user-view.php?id=$row[id]' class='btn btn-sm btn-info''>View</a></td>";
-                                          echo "</tr>";
+                                          echo"<td><a href='order-view.php?id=".$row['id']."' class='btn btn-sm btn-info''>View</a></td>";
                                       }
 
                                   ?>

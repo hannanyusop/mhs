@@ -25,6 +25,13 @@
                 break;
 
             case 'edit' :
+                $sql = "UPDATE users SET first_name = '$_POST[first_name]',last_name = '$_POST[last_name]',email = '$_POST[email]',phone = '$_POST[phone]',status = '$_POST[status]',address1 = '$_POST[address1]',address2 ='$_POST[address2]',city='$_POST[city]',postcode='$_POST[postcode]',states='$_POST[states]',country='$_POST[country]' WHERE id ='$_POST[id]'";
+                if (mysqli_query($conn, $sql)) {
+                    echo "<script>alert('Successfully added!');window.location='../$model-view.php?id=$_POST[id]';</script>";
+                } else {
+                    //echo "<script>alert('Error while inserting data!');//window.location='../user-$action.php';</script>";
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
                 break;
 
             case 'delete' :

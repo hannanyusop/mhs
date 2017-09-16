@@ -32,7 +32,7 @@
             echo "<script>window.location='admin/index.php';</script>";
         }else{
             if(isset($_SESSION['service'])){
-                echo "<script>alert('Now you can proceed for your order');window.location='service-order.php?id=$_SESSION[service]';</script>";
+                echo "<script>alert('Now you can proceed for your order');window.location='order.php?id=$_SESSION[service]';</script>";
             }else{
                 echo "<script>window.location='index.php';</script>";
             }

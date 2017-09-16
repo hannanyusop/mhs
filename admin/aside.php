@@ -95,7 +95,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview menu-open">
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i> <span>Users</span>
                     <span class="pull-right-container">
@@ -108,7 +108,7 @@
                 </ul>
             </li>
 
-            <li class="active treeview">
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-slideshare"></i> <span>Services</span>
                     <span class="pull-right-container">
@@ -121,7 +121,7 @@
                 </ul>
             </li>
 
-            <li class="active treeview">
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-list-ul"></i> <span>Order</span>
                     <span class="pull-right-container">
@@ -129,7 +129,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="order-new.php"><i class="fa fa-circle-o"></i>Pending</a></li>
+                    <li><a href="order-pending.php"><i class="fa fa-circle-o"></i>Pending</a></li>
                     <li><a href="order.php"><i class="fa fa-circle-o"></i>List</a></li>
                     <li><a href="order-reject.php"><i class="fa fa-circle-o"></i>Rejected</a></li>
                 </ul>
