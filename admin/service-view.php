@@ -23,110 +23,162 @@
         <section class="content">
             <?php
             if(isset($_GET['id'])) {
-                $sql = "SELECT * FROM services";
+                $sql = "SELECT * FROM services WHERE id=$_GET[id] ";
                 $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <div class="box">
-                        <div class="box-body">
-                            <div class="row">
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <div class="box">
+                            <div class="box-body">
+                                <div class="row">
 
-                                <div class="box-body col-lg-6">
+                                    <div class="box-body col-lg-6">
 
-                                    <legend>Basic Info</legend>
+                                        <legend>Basic Info</legend>
 
-                                    <div class="form-group">
-                                        <label>Title</label>
-                                        <input type="text" name="title" value="<?=$row['title'] ?>" class="form-control" disabled>
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Title</label>
+                                            <input type="text" name="title" value="<?= $row['title'] ?>"
+                                                   class="form-control" disabled>
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <div class="alert alert-info"><?= $row['description'] ?></div>
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <div class="alert alert-info"><?= $row['description'] ?></div>
+                                        </div>
 
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <label>Basic Price</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">RM</div>
-                                                    <input type="text" name="basic_price" value="<?=$row['basic_price'] ?>"
-                                                           class="form-control" disabled>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <label>Basic Price</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">RM</div>
+                                                        <input type="text" name="basic_price"
+                                                               value="<?= $row['basic_price'] ?>"
+                                                               class="form-control" disabled>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <label>Qouta</label>
-                                                <input type="number" name="qouta" value="<?=$row['qouta'] ?>" class="form-control"
-                                                       disabled>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <label>Qouta</label>
+                                                    <input type="number" name="qouta" value="<?= $row['qouta'] ?>"
+                                                           class="form-control"
+                                                           disabled>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <label>Status</label>
-                                                <select name="status" class="form-control select2" style="width: 100%;" disabled>
-                                                    <option value="1"<?php if($row['status'] == 1 ){ echo 'selected'; } ?>>ACTIVE</option>
-                                                    <option value="2" <?php if($row['status'] == 2 ){ echo 'selected'; } ?>>DEACTIVE</option>
-                                                </select>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <label>Status</label>
+                                                    <select name="status" class="form-control select2"
+                                                            style="width: 100%;" disabled>
+                                                        <option value="1"<?php if ($row['status'] == 1) {
+                                                            echo 'selected';
+                                                        } ?>>ACTIVE
+                                                        </option>
+                                                        <option value="2" <?php if ($row['status'] == 2) {
+                                                            echo 'selected';
+                                                        } ?>>DEACTIVE
+                                                        </option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </div>
-                                <div class="box-body col-lg-6">
-                                    <legend>Add-on List</legend>
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <th style="width: 80px">Price</th>
-                                            <th>Title</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        <form action="controller/service_add_on.php" method="post">
-                                            <input type="hidden" name="action" value="add">
-                                            <input type="hidden" name="service_id" value="<?=$_GET['id']?>">
+                                    </div>
+                                    <div class="box-body col-lg-6">
+                                        <legend>Add-on List</legend>
+                                        <table class="table table-bordered">
                                             <tr>
-                                                <td><input type="text" name="price" class="form-control"></td>
-                                                <td><input type="text" name="title" class="form-control"></td>
-                                                <td><input type="submit" value="Add" class="btn btn-success btn-sm"></td>
+                                                <th style="width: 80px">Price</th>
+                                                <th>Title</th>
+                                                <th>Status</th>
+                                            </tr>
+                                            <form action="controller/service_add_on.php" method="post">
+                                                <input type="hidden" name="action" value="add">
+                                                <input type="hidden" name="service_id" value="<?= $_GET['id'] ?>">
+                                                <tr>
+                                                    <td><input type="text" name="price" class="form-control"></td>
+                                                    <td><input type="text" name="title" class="form-control"></td>
+                                                    <td><input type="submit" value="Add" class="btn btn-success btn-sm">
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                                $sql = "SELECT * FROM services_add_on WHERE service_id =$_GET[id] ORDER BY price asc";
+                                                $result = mysqli_query($conn, $sql);
+                                                while ($row1 = mysqli_fetch_assoc($result)) {
+                                                    echo "<tr>";
+                                                    echo "<td>RM $row1[price]</td>";
+                                                    echo "<td>$row1[title]</td>";
+                                                    echo "<td><a href='controller/service_add_on.php?action=disabled&id=$row1[id]' class='btn btn-warning btn-sm'>Disabled</a> </td>";
+                                                    echo "</tr>";
+                                                }
+                                                ?>
+                                            </form>
+                                        </table>
+
+                                        <legend>Images</legend>
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <th style="width: 80px">Images</th>
+                                                <th>alt</th>
+                                                <th>action</th>
+                                            </tr>
+                                            <tr>
+                                                <form enctype="multipart/form-data"
+                                                      action="controller/service_images.php" method="POST">
+                                                    <input type="hidden" name="action" value="upload-image">
+                                                    <input type="hidden" name="service_id" value="<?= $_GET['id'] ?>">
+                                                    <td><input type="file" name="uploaded"/></td>
+                                                    <td><input type="text" name="alt"></td>
+                                                    <td><input type="submit" value="Add" class="btn btn-success btn-sm">
+                                                    </td>
+                                                </form>
                                             </tr>
                                             <?php
-                                            $sql = "SELECT * FROM services_add_on WHERE service_id =$_GET[id] ORDER BY price asc";
-                                            $result = mysqli_query($conn, $sql);
-                                            while($row1 = mysqli_fetch_assoc($result)) {
+                                            $sql2 = "SELECT * FROM service_images WHERE service_id =$_GET[id]";
+                                            $result2 = mysqli_query($conn, $sql2);
+                                            while ($row2 = mysqli_fetch_assoc($result2)) {
                                                 echo "<tr>";
-                                                echo "<td>RM $row1[price]</td>";
-                                                echo "<td>$row1[title]</td>";
-                                                echo "<td><a href='controller/service_add_on.php?action=disabled&id=$row1[id]' class='btn btn-warning btn-sm'>Disabled</a> </td>";
+                                                echo "<td>$row2[image]</td>";
+                                                echo "<td>$row2[alt]</td>";
+                                                echo "<td><a href='controller/service_images.php?action=delete&id=$row2[id]&service_id=$_GET[id]&image=$row2[image]' class='btn btn-danger btn-sm'>Delete</a> </td>";
                                                 echo "</tr>";
                                             }
                                             ?>
-                                        </form>
-                                    </table>
+                                        </table>
 
+                                    </div>
+                                </div>
+
+                                <div class="box-footer">
+                                    <a href="service-edit.php?id=<?= $row['id'] ?>" class="btn btn-info">Edit</a>
+                                    <a href="service.php" class="btn btn-warning">Back</a>
                                 </div>
                             </div>
-
-                            <div class="box-footer">
-                                <a href="service-edit.php?id=<?=$row['id'] ?>" class="btn btn-info">Edit</a>
-                                <a href="service.php" class="btn btn-warning">Back</a>
-                            </div>
                         </div>
-                    </div>
-                    <?php
+                        <?php
+                    }
+                }else{
+                    $_SESSION['error'] = [
+                        'code' => '404',
+                        'url'  => 'service.php',
+                        'msg'  => 'Service Not found or deleted'
+                    ];
+
+                    echo "<script>window.location='404.php'</script>";
                 }
             }else{
                 $_SESSION['error'] = [
                     'code' => '404',
                     'url'  => 'service.php',
-                    'msg'  => 'Service not found'
+                    'msg'  => 'MIssing URL Parameter'
                 ];
 
                 echo "<script>window.location='404.php'</script>";
@@ -140,4 +192,3 @@
     <?php include_once ('footer.php'); ?>
 </body>
 </html>
-<script></script>

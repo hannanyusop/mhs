@@ -55,7 +55,7 @@
 
                                     echo "<td>".$row['first_name']." ".$row['last_name']."</td>";
                                     echo "<td>".$row['service_title']."-".$row['add_on_title']."(RM ".$row['price'].")</td>";
-                                    echo "<td>".$row['admin_notes']."</td>";
+                                    echo "<td>".$row['admin_note']."</td>";
                                     echo"<td><a href='order-view.php?id=".$row['id']."' class='btn btn-sm btn-info''>View</a></td>";
                                 }
                                 ?>
