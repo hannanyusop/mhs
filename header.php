@@ -62,7 +62,6 @@
         <li><a href="index.php">Home </a></li>
         <li><a href="service.php">Services</a></li>
         <li><a href="introduction.php">Introduction</a></li>
-        <li><a href="gallery.php">Gallery</a></li>
         <li><a href="contact.php">Contact</a></li>
 
         <?php if(isset($_SESSION['level'])){ ?>

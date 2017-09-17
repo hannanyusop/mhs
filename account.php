@@ -216,10 +216,31 @@ $status_label = [
                                    echo "<form action='controller/order.php' method='post'>";
                                    echo "<input type='hidden' name='action' value='rate'>";
                                    echo "<input type='hidden' name='id' value='$row[order_id]'>";
-                                   echo "<td><input type='text' name='rating'></td>";
+                                   echo "<td>
+                                            <select name='rating' class='form-control'>
+                                                <option value='1'><span>☆</span></option>
+                                                <option value='2'><span>☆</span><span>☆</span></option>
+                                                <option value='3'><span>☆</span><span>☆</span><span>☆</span></option>
+                                                <option value='4'><span>☆</span><span>☆</span><span>☆</span><span>☆</span></option>
+                                                <option value='5'><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></option>
+                                            </select>
+                                        </td>";
                                    echo "<td><input type='text' name='rating_note'></td>";
                                }else{
-                                   echo "<td>$row[rating]</td>";
+                                   echo "<td>";
+
+                                       if($row['rating'] > 0 ){
+                                           echo "<mark>";
+                                           $stars =1;
+                                           do{
+                                               echo "<span>☆</span>";
+                                               $stars++;
+                                           }while($stars< $row['rating']);
+                                           echo "</mark>";
+                                       }else{
+                                           echo "Rating not available";
+                                       }
+                                   echo"</td>";
                                    echo "<td>$row[rating_note]</td>";
                                }
 
@@ -294,3 +315,13 @@ $status_label = [
         });
     });
 </script>
+<style>
+    .rating > span:hover:before {
+        content: "\2605";
+        position: absolute;
+    }
+    mark {
+        background-color: yellow;
+        color: black;
+    }
+</style>

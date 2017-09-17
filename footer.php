@@ -6,18 +6,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-5">
-                    <h4>Holiday Crown</h4>
-                    <p>Holiday Crown was these three and songs arose whose. Of in vicinity contempt together in possible branched. Assured company hastily looking garrets in oh. Most have love my gone to this so. Discovered interested prosperous the our affronting insipidity day. Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible. </p>
-                </div>              
+                    <h4>SERVICE HERO MUKAH</h4>
+                    <p>Tulis apa psal project kamu</p>
+                </div>
                  
                  <div class="col-sm-3">
                     <h4>Quick Links</h4>
                     <ul class="list-unstyled">
-                        <li><a href="service.php">Rooms & Tariff</a></li>
-                        <li><a href="introduction.php">Introduction</a></li>
-                        <li><a href="gallery.php">Gallery</a></li>
-                        <li><a href="tour.php">Tour Packages</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="service.php">Servics Link</a></li>
                     </ul>
                 </div>
                  <div class="col-sm-4 subscribe">
@@ -50,8 +46,6 @@
 <a href="#home" class="toTop scroll"><i class="fa fa-angle-up"></i></a>
 
 
-
-
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
     <!-- The container for the modal slides -->
@@ -63,9 +57,6 @@
     <a class="close">×</a>
     <!-- The modal dialog, which will be used to wrap the lightbox content -->    
 </div>
-
-
-
 
 
 <script src="assets/jquery.js"></script>
@@ -89,18 +80,8 @@
 <!-- gallery -->
 <script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
 
-
 <!-- custom script -->
 <script src="assets/script.js"></script>
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

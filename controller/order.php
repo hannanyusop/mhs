@@ -30,7 +30,8 @@
                 break;
 
             case 'rate' :
-                $sql = "UPDATE orders SET rating = $_POST[rating], rating_note = '$_POST[rating_note]' WHERE id = '$_POST[id]' AND user_id = '$_SESSION[user_id]'";
+                $rating_note = addslashes($_POST['rating_note']);
+                $sql = "UPDATE orders SET rating = $_POST[rating], rating_note = '$rating_note' WHERE id = '$_POST[id]' AND user_id = '$_SESSION[user_id]'";
 
                 if (mysqli_query($conn, $sql)) {
                     echo "<script>alert('Thank You for your feedback');window.location='../account.php';</script>";
