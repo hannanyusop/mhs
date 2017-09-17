@@ -5,11 +5,14 @@
 <div class="wrapper">
 
 <?php include_once('aside.php'); ?>
+
 <?php
     $status_label = [
-        1 => '<span class="label label-warning">Pending</span>',
-        2 => '<span class="label label-success">Active</span>',
-        3 => '<span class="label label-danger">Banned</span>',
+    1 => '<span class="label label-warning">Pending</span>',
+    2 => '<span class="label label-info">Approved</span>',
+    3 => '<span class="label label-success">Completed</span>',
+    4 => '<span class="label label-danger">Rejected</span>',
+    5 => '<span class="label label-default">Canceled</span>'
     ];
 ?>
   <!-- Content Wrapper. Contains page content -->

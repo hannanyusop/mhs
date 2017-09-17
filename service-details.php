@@ -16,7 +16,7 @@
                     <!-- RoomDetails -->
                     <div id="RoomDetails" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="item  height-full"><img src="images/no-image-found.gif" class="img-responsive" alt="slide">
+                            <div class="item  height-full"><img src="images/_03282016103611478_d5e4f548-4e5f-482c-98c3-72c61f111adc.jpg.jpeg" class="img-responsive">
                             </div>
                         </div>
                         <!-- Controls -->

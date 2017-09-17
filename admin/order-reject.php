@@ -8,9 +8,12 @@
     <?php
     $status_label = [
         1 => '<span class="label label-warning">Pending</span>',
-        2 => '<span class="label label-success">Active</span>',
-        3 => '<span class="label label-danger">Banned</span>',
+        2 => '<span class="label label-info">Approved</span>',
+        3 => '<span class="label label-success">Completed</span>',
+        4 => '<span class="label label-danger">Rejected</span>',
+        5 => '<span class="label label-default">Canceled</span>'
     ];
+    ?>
     ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -49,14 +52,14 @@
                                 <tbody>
                                 <?php
                                 //status 3 is pending
-                                $sql = "SELECT *,c.title as service_title,d.title as add_on_title  FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id WHERE a.status = '3'";
+                                $sql = "SELECT *,a.id as order_id,c.title as service_title,d.title as add_on_title  FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id WHERE a.status = '3'";
                                 $result = mysqli_query($conn, $sql);
                                 while($row = mysqli_fetch_assoc($result)) {
 
                                     echo "<td>".$row['first_name']." ".$row['last_name']."</td>";
                                     echo "<td>".$row['service_title']."-".$row['add_on_title']."(RM ".$row['price'].")</td>";
                                     echo "<td>".$row['admin_note']."</td>";
-                                    echo"<td><a href='order-view.php?id=".$row['id']."' class='btn btn-sm btn-info''>View</a></td>";
+                                    echo"<td><a href='order-view.php?id=".$row['order_id']."' class='btn btn-sm btn-info''>View</a></td>";
                                 }
                                 ?>
                                 </tbody>
