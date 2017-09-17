@@ -20,26 +20,25 @@
 		<div class="col-sm-6 col-sm-offset-3">
 			<div class="spacer">   		
 
-       		<h4>Write to us</h4>
-			<form role="form">
-			<div class="form-group">	
-			<input type="text" class="form-control" id="name" placeholder="Name">
-			</div>
-			<div class="form-group">
-			<input type="email" class="form-control" id="email" placeholder="Enter email">
-			</div>
-			<div class="form-group">
-			<input type="phone" class="form-control" id="phone" placeholder="Phone">
-			</div>
-			<div class="form-group">
-			<textarea type="email" class="form-control"  placeholder="Message" rows="4"></textarea>
-			</div>
-					
-			<button type="submit" class="btn btn-default">Send</button>
-			</form>
-			</div>
+                <h4>Write to us</h4>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <input type="phone" class="form-control" id="phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea type="email" class="form-control"  placeholder="Message" rows="4"></textarea>
+                    </div>
 
+                    <button type="submit" class="btn btn-default">Send</button>
+                </form>
 
+			</div>
        	</div>
 
 

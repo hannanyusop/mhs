@@ -23,7 +23,7 @@
         <section class="content">
             <?php
             if(isset($_GET['id'])) {
-                $sql = "SELECT * FROM services";
+                $sql = "SELECT * FROM services WHERE id = '$_GET[id]'";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
@@ -40,13 +40,6 @@
                                     <div class="form-group">
                                         <label>Title</label>
                                         <input type="text" name="title" value="<?=$row['title'] ?>" class="form-control" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <textarea id="description" name="description" rows="10" cols="80" required>
-                                            <?=$row['description']?>
-                                        </textarea>
                                     </div>
 
                                     <div class="form-group">
@@ -84,25 +77,13 @@
 
                                 </div>
                                 <div class="box-body col-lg-6">
-                                    <legend>Add-on List</legend>
+                                    <legend>Description</legend>
 
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <th style="width: 80px">Price</th>
-                                            <th>Name</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="text" name="price" class="form-control"></td>
-                                            <td><input type="text" name="name" class="form-control"></td>
-                                            <td>
-                                                <select name="status" class="form-control select2" style="width: 100%;">
-                                                    <option value="1">ACTIVE</option>
-                                                    <option value="2">DEACTIVE</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <div class="form-group">
+                                        <textarea id="description" name="description" rows="10" cols="80" required>
+                                            <?=$row['description']?>
+                                        </textarea>
+                                    </div>
 
                                 </div>
                             </div>

@@ -6,7 +6,7 @@
 
     }else{
         $_SESSION['service'] = 'TEST';
-        echo "<script>alert('You need to login before you can order service.');window.location='login.php'</script>";
+        echo "<script>alert('You need to login before you can book our service.');window.location='login.php'</script>";
     }
 ?>
 <div class="container">
