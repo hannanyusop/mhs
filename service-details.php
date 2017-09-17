@@ -16,13 +16,7 @@
                     <!-- RoomDetails -->
                     <div id="RoomDetails" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="item active"><img src="images/photos/8.jpg" class="img-responsive" alt="slide">
-                            </div>
-                            <div class="item  height-full"><img src="images/photos/9.jpg" class="img-responsive"
-                                                                alt="slide">
-                            </div>
-                            <div class="item  height-full"><img src="images/photos/10.jpg" class="img-responsive"
-                                                                alt="slide">
+                            <div class="item  height-full"><img src="images/no-image-found.gif" class="img-responsive" alt="slide">
                             </div>
                         </div>
                         <!-- Controls -->
@@ -56,6 +50,67 @@
                     </div>
 
 
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <legend><h3>Users Feedback </h3></legend>
+                            </div><!-- /col-sm-12 -->
+                        </div>
+
+                        <?php
+                        $result3 = mysqli_query($conn, "SELECT *,b.first_name as f_name FROM orders as a LEFT JOIN users as b ON b.id=a.user_id WHERE a.service_id=$row[id] ORDER BY a.id desc LIMIT 6");
+
+                        if (mysqli_num_rows($result3) > 0) {
+                            while($row3 = mysqli_fetch_assoc($result3)) { ?>
+
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        <div class="thumbnail">
+                                            <img class="img-responsive user-photo" src="images/avatar_2x.png">
+                                        </div><!-- /thumbnail -->
+                                    </div><!-- /col-sm-1 -->
+
+                                    <div class="col-sm-10">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <strong><?=$row3['f_name'] ?></strong>
+                                                <span class="text-align-right text-muted">
+
+                                                </span>
+                                            </div>
+                                            <div class="panel-body">
+                                                <p align="right">
+                                                    Rating :
+                                                    <?php
+                                                    if($row3['rating'] > 0 ){
+                                                        echo "<mark>";
+                                                        $stars =1;
+                                                        do{
+                                                            echo "<span>☆</span>";
+                                                            $stars++;
+                                                        }while($stars< $row3['rating']);
+                                                        echo "</mark>";
+                                                    }else{
+                                                        echo "Rating not available";
+                                                    }
+                                                    ?>
+                                                </p>
+                                               <?=$row3['rating_note'];?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        <?php  }
+                        }else{ ?>
+                            <div class="col-sm-12">
+                                <h4>-No Comment-</h4>
+                            </div><!-- /col-sm-12 -->
+                        <?php } ?>
+
+                    </div>
+
+
                 </div>
 
                 <?php
@@ -80,3 +135,13 @@
     }
 ?>
 <?php include 'footer.php';?>
+<style>
+    .rating > span:hover:before {
+        content: "\2605";
+        position: absolute;
+    }
+    mark {
+        background-color: yellow;
+        color: black;
+    }
+</style>

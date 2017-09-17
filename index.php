@@ -30,9 +30,17 @@
             <!-- RoomCarousel -->
             <div id="FoodCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                <div class="item active"><img src="images/photos/1.jpg" class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/2.jpg"  class="img-responsive" alt="slide"></div>
-                <div class="item  height-full"><img src="images/photos/5.jpg"  class="img-responsive" alt="slide"></div>
+                    <?php
+                    $result3 = mysqli_query($conn, "SELECT * FROM service_images WHERE service_id=$row[id]");
+
+                    if (mysqli_num_rows($result3) > 0) {
+                        while($row3 = mysqli_fetch_assoc($result3)) {
+                            echo "<div class='item  height-full'><img src='images/$row3[image]'  class='img-responsive' alt='slide'></div>";
+                        }
+                    }else{
+                        echo "<div class='item  height-full'><img src='images/no-image-found.gif'  class='img-responsive' alt='slide'></div>";
+                    }
+                    ?>
                 </div>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#FoodCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>

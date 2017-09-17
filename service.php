@@ -28,7 +28,17 @@
     ?>
       <div class="col-sm-6 wowload fadeInUp">
           <div class="rooms">
-              <img src="images/photos/10.jpg" class="img-responsive">
+              <?php
+              $result3 = mysqli_query($conn, "SELECT * FROM service_images WHERE service_id=$row[service_id] LIMIT 1");
+
+              if (mysqli_num_rows($result3) > 0) {
+                while($row3 = mysqli_fetch_assoc($result3)) {
+                    echo "<div class='portrait'><img src='images/$row3[image]'></div>";
+                }
+              }else{
+                  echo "<div class='portrait'><img src='images/no-image-found.gif'></div>";
+              }
+              ?>
               <div class="info">
                   <h3><?= $row['title'] ?></h3>
                   <h5>Basic Price: RM <?= $row['basic_price'] ?></h5>
@@ -49,7 +59,7 @@
                           ?>
                       </h5>
                   </div>
-                  <a href="service-details.php?id=<?=$row['id'] ?>" class="btn btn-default">Check Details</a>
+                  <a href="service-details.php?id=<?=$row['service_id'] ?>" class="btn btn-default">Check Details</a>
               </div>
           </div>
       </div>
