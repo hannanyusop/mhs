@@ -7,7 +7,10 @@
 <?php include_once('aside.php'); ?>
 
 <?php
-    $sql = "SELECT *,c.title as service_title,c.basic_price as service_basic_price,d.title as services_add_on_title,d.price as sevices_add_on_price  FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id WHERE a.id = '$_GET[id]'";
+    $sql = "SELECT *,a.id as order_id,c.title as service_title,c.basic_price as service_basic_price,d.title as services_add_on_title,d.price as sevices_add_on_price,a.status as order_status  FROM orders as a 
+            LEFT JOIN users as b ON b.id=a.user_id 
+            LEFT JOIN services as c ON c.id=a.service_id 
+            LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id WHERE a.id = '$_GET[id]'";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_assoc($result)) {
 ?>
@@ -49,7 +52,7 @@
                 <!-- info row -->
                 <div class="row invoice-info">
                     <div class="col-sm-4 invoice-col">
-                        From:
+                        To:
                             <strong><?=$row['first_name']." ".$row['last_name'] ?></strong><br>
                             <?=$row['address1'] ?><br>
                             <?=$row['address2'] ?><br>
@@ -61,7 +64,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col">
-                        To
+                        From
                         <address>
                             <strong>Service Hero Mukah Management</strong><br>
                             POLITEKNIK MUKAH<br>
@@ -126,9 +129,7 @@
                         <img src="dist/img/credit/paypal2.png" alt="Paypal">
 
                         <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango
-                            imeem plugg
-                            dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                            CASH TERM ONLY
                         </p>
                     </div>
                     <!-- /.col -->
@@ -159,13 +160,15 @@
                 <!-- this row will not appear when printing -->
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i>
+                        <?php if($row['order_status'] == 3) : ?>
+                        <a href="order-print.php?id=<?=$_GET['id']?>" target="_blank" class="btn btn-info"><i class="fa fa-print"></i>
                             Print</a>
-                        <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i>
-                            Submit Payment
-                        </button>
-                        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                            <i class="fa fa-download"></i> Generate PDF
+                        <?php endif; ?>
+                        <a href="controller/order.php?action=approve&id=<?=$row['order_id']?>" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i>
+                            Aprrove
+                        </a>
+                        <button type="button" class="btn btn-warning pull-right" style="margin-right: 5px;">
+                            <i class="fa fa-minus-circle"></i> Reject
                         </button>
                     </div>
                 </div>
