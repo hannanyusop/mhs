@@ -5,7 +5,7 @@
     if(isset($_SESSION['level'])){
 
     }else{
-        $_SESSION['service'] = 'TEST';
+        $_SESSION['service'] = $_GET['id'];
         echo "<script>alert('You need to login before you can book our service.');window.location='login.php'</script>";
     }
 ?>

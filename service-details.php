@@ -58,7 +58,7 @@
                         </div>
 
                         <?php
-                        $result3 = mysqli_query($conn, "SELECT *,b.first_name as f_name FROM orders as a LEFT JOIN users as b ON b.id=a.user_id WHERE a.service_id=$row[id] ORDER BY a.id desc LIMIT 6");
+                        $result3 = mysqli_query($conn, "SELECT *,a.id as service_id,b.first_name as f_name FROM orders as a LEFT JOIN users as b ON b.id=a.user_id WHERE a.service_id=$row[id] ORDER BY a.id desc LIMIT 6");
 
                         if (mysqli_num_rows($result3) > 0) {
                             while($row3 = mysqli_fetch_assoc($result3)) { ?>
