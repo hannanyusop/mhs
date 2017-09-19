@@ -51,14 +51,14 @@
                               </thead>
                                   <tbody>
                                   <?php
-                                  $sql = "SELECT *,c.title as service_title,d.title as add_on_title  FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id WHERE a.status = '1'";
+                                  $sql = "SELECT *,a.id as order_id,c.title as service_title,d.title as add_on_title  FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id WHERE a.status = '1'";
                                   $result = mysqli_query($conn, $sql);
                                       while($row = mysqli_fetch_assoc($result)) {
 
                                           echo "<td>".$row['first_name']." ".$row['last_name']."</td>";
                                           echo "<td>".$row['service_title']."-".$row['add_on_title']."(RM ".$row['price'].")</td>";
                                           echo "<td>".$row['time'].' '.$row['date']."</td>";
-                                          echo"<td><a href='order-view.php?id=".$row['id']."' class='btn btn-sm btn-info''>View</a></td>";
+                                          echo"<td><a href='order-view.php?id=".$row['order_id']."' class='btn btn-sm btn-info''>View</a></td>";
                                       }
                                   ?>
                               </tbody>

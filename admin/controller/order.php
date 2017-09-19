@@ -3,7 +3,7 @@
     //receive any action parameter from POST or GET
     if(isset($_POST['action'])||isset($_GET['action']))
     {
-        $model = 'user';
+        $model = 'order';
         if(isset($_POST['action'])){
             $action =$_POST['action'];
         } else{
@@ -42,20 +42,28 @@
             case 'edit' :
                 $sql = "UPDATE users SET first_name = '$_POST[first_name]',last_name = '$_POST[last_name]',email = '$_POST[email]',phone = '$_POST[phone]',status = '$_POST[status]',address1 = '$_POST[address1]',address2 ='$_POST[address2]',city='$_POST[city]',postcode='$_POST[postcode]',states='$_POST[states]',country='$_POST[country]' WHERE id ='$_POST[id]'";
                 if (mysqli_query($conn, $sql)) {
-                    echo "<script>alert('Successfully added!');window.location='../$model-view.php?id=$_POST[id]';</script>";
+                    echo "<script>alert('Approved!');window.location='../$model-view.php?id=$_POST[id]';</script>";
                 } else {
                     //echo "<script>alert('Error while inserting data!');//window.location='../user-$action.php';</script>";
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
                 break;
 
-            case 'delete' :
+            case 'reject' :
+                //status = 4 is rejected
+                $sql = "UPDATE orders SET status = 4,admin_note = '$_POST[admin_note]' WHERE id = $_POST[order_id]";
+                if (mysqli_query($conn, $sql)) {
+                    echo "<script>alert('Rejected!!');window.location='../$model-view.php?id=$_POST[order_id]';</script>";
+                } else {
+                    //echo "<script>alert('Error while inserting data!');//window.location='../user-$action.php';</script>";
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
                 break;
 
             default :
-                echo "<script>window.location='404.php'</script>";
+                echo "<script>window.location='../404.php'</script>";
         }
     }else{
-        echo "<script>window.location='404.php'</script>";
+        echo "<script>window.location='../404.php'</script>";
     }
 ?>

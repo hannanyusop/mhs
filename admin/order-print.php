@@ -47,7 +47,7 @@ while($row = mysqli_fetch_assoc($result)) {
         <div class="col-sm-4 invoice-col">
             From
             <address>
-                <strong>Service Hero Mukah Management</strong><br>
+                <strong>Management Service Hero Mukah</strong><br>
                 POLITEKNIK MUKAH<br>
                 KM 7.5, Jalan Oya, 97000<br>
                 MUKAH,SARAWAK<br>
@@ -73,6 +73,7 @@ while($row = mysqli_fetch_assoc($result)) {
             <th>No</th>
             <th>Qty</th>
             <th>Service</th>
+            <th>Description</th>
             <th>Price</th>
           </tr>
           </thead>
@@ -81,12 +82,14 @@ while($row = mysqli_fetch_assoc($result)) {
             <td>1</td>
             <td>1</td>
             <td><?=$row['service_title'] ?></td>
+            <td>-</td>
             <td><?=$row['service_price'] ?></td>
           </tr>
           <tr>
             <td>2</td>
             <td>1</td>
             <td><?=$row['add_on_title'] ?></td>
+              <td>Add on</td>
             <td><?=$row['add_on_price'] ?></td>
           </tr>
           </tbody>
@@ -99,19 +102,16 @@ while($row = mysqli_fetch_assoc($result)) {
     <div class="row">
       <!-- accepted payments column -->
       <div class="col-xs-6">
-        <p class="lead">Payment Methods:</p>
-        <img src="../../dist/img/credit/visa.png" alt="Visa">
-        <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-        <img src="../../dist/img/credit/american-express.png" alt="American Express">
-        <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+          <p class="lead">Status: Approved</p>
+          <p class="lead">Payment Methods: CASH</p>
 
         <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-          CASH TERM ONLY
+            <b>Notes</b>:<br>Our team will contact you soon
         </p>
       </div>
       <!-- /.col -->
       <div class="col-xs-6">
-        <p class="lead">Amount Due4</p>
+        <p class="lead">Total</p>
 
         <div class="table-responsive">
           <table class="table">

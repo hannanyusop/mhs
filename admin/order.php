@@ -51,7 +51,7 @@
                               </thead>
                                   <tbody>
                                   <?php
-                                      $sql = "SELECT *,a.status as order_status FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id";
+                                      $sql = "SELECT *,a.id as user_id,a.status as order_status FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id";
 
                                   $result = mysqli_query($conn, $sql);
                                       while($row = mysqli_fetch_assoc($result)) {
@@ -60,7 +60,7 @@
                                           echo "<td>".$row['title']."</td>";
                                           echo "<td>".$row['time'].' '.$row['date']."</td>";
                                           echo "<td>".$status_label[$row['order_status']]."</td>";
-                                          echo "<td><a href='order-view.php?id=".$row['id']."' class='btn btn-sm btn-info''>View</a></td>";
+                                          echo "<td><a href='order-view.php?id=".$row['user_id']."' class='btn btn-sm btn-info''>View</a></td>";
                                           echo "</tr>";
                                       }
 

@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html>
+<?php
+$status_label = [
+    1 => '<span class="label label-warning">Pending</span>',
+    2 => '<span class="label label-info">Approved</span>',
+    3 => '<span class="label label-success">Completed</span>',
+    4 => '<span class="label label-danger">Rejected</span>',
+    5 => '<span class="label label-default">Canceled</span>'
+];
+?>
 <?php include_once('head.php'); ?>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -19,21 +28,19 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Invoice
-                    <small>#007612</small>
+                    View Order
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="#">Examples</a></li>
-                    <li class="active">Invoice</li>
+                    <li><a href="#">Order</a></li>
+                    <li class="active">View</li>
                 </ol>
             </section>
 
             <div class="pad margin no-print">
                 <div class="callout callout-info" style="margin-bottom: 0!important;">
                     <h4><i class="fa fa-info"></i> Note:</h4>
-                    This page has been enhanced for printing. Click the print button at the bottom of the invoice to
-                    test.
+                    Approve order to generate invoice.
                 </div>
             </div>
 
@@ -44,7 +51,6 @@
                     <div class="col-xs-12">
                         <h2 class="page-header">
                             <i class="fa fa-globe"></i> Service Hero Mukah
-                            <small class="pull-right">Date: 2/10/2014</small>
                         </h2>
                     </div>
                     <!-- /.col -->
@@ -75,14 +81,6 @@
                         </address>
                     </div>
 
-                    <div class="col-sm-4 invoice-col">
-                        <b>Invoice #007612</b><br>
-                        <br>
-                        <b>Order ID:</b> 4F3S8J<br>
-                        <b>Payment Due:</b> 2/22/2014<br>
-                        <b>Account:</b> 968-34567
-                    </div>
-
                 </div>
 
                 <div class="row">
@@ -90,9 +88,9 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
+                                <th>No.</th>
                                 <th>Qty</th>
-                                <th>Product</th>
-                                <th>Serial #</th>
+                                <th>Service</th>
                                 <th>Description</th>
                                 <th>Subtotal</th>
                             </tr>
@@ -100,16 +98,16 @@
                             <tbody>
                             <tr>
                                 <td>1</td>
+                                <td>1</td>
                                 <td><?=$row['service_title']?></td>
-                                <td>455-981-221</td>
-                                <td>El snort testosterone trophy driving gloves handsome</td>
+                                <td>SERVICE</td>
                                 <td>RM<?=$row['service_basic_price']?></td>
                             </tr>
                             <tr>
                                 <td>2</td>
+                                <td>1</td>
                                 <td><?=$row['services_add_on_title']?></td>
-                                <td>247-925-726</td>
-                                <td>Wes Anderson umami biodiesel</td>
+                                <td>ADD ON</td>
                                 <td>RM<?=$row['sevices_add_on_price'] ?></td>
                             </tr>
                             </tbody>
@@ -122,19 +120,16 @@
                 <div class="row">
                     <!-- accepted payments column -->
                     <div class="col-xs-6">
-                        <p class="lead">Payment Methods:</p>
-                        <img src="dist/img/credit/visa.png" alt="Visa">
-                        <img src="dist/img/credit/mastercard.png" alt="Mastercard">
-                        <img src="dist/img/credit/american-express.png" alt="American Express">
-                        <img src="dist/img/credit/paypal2.png" alt="Paypal">
+                        <p class="lead">Status: <?=$status_label[$row['order_status']]?></p>
+                        <p class="lead">Payment Methods: CASH</p>
 
                         <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                            CASH TERM ONLY
+                            <b>Notes</b>:<br><?=$row['admin_note']?>
                         </p>
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-6">
-                        <p class="lead">Amount Due 2/22/2014</p>
+                        <p class="lead">TOTAL</p>
 
                         <div class="table-responsive">
                             <table class="table">
@@ -164,17 +159,49 @@
                         <a href="order-print.php?id=<?=$_GET['id']?>" target="_blank" class="btn btn-info"><i class="fa fa-print"></i>
                             Print</a>
                         <?php endif; ?>
-                        <a href="controller/order.php?action=approve&id=<?=$row['order_id']?>" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i>
-                            Aprrove
-                        </a>
-                        <button type="button" class="btn btn-warning pull-right" style="margin-right: 5px;">
-                            <i class="fa fa-minus-circle"></i> Reject
-                        </button>
+                        <?php
+                        if($row['order_status'] == 1 ) { ?>
+                            <a href="controller/order.php?action=approve&id=<?=$row['order_id']?>" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i>
+                                Aprrove
+                            </a>
+                            <button type="button" class="btn btn-warning pull-right" style="margin-right: 5px;" data-toggle="modal" data-target="#myModal">
+                                <i class="fa fa-minus-circle"></i> Reject
+                            </button>
+                        <?php }?>
                     </div>
                 </div>
             </section>
             <!-- /.content -->
             <div class="clearfix"></div>
+        </div>
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-md">
+                <!-- Modal content-->
+                <form action="controller/order.php" method="post">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                            <h4 class="modal-title">Reject Order</h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input type="hidden" name="action" value="reject">
+                                <input type="hidden" name="order_id" value="<?=$row['order_id']?>">
+                                <label class="control-label" for="txtDescripcion">Reasons</label>
+                                <textarea class="form-control" name="admin_note" rows="5">Not valid/complete information</textarea>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <input type="submit" class="btn btn-success" value="Submit">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
         </div>
 
 <?php } ?>
