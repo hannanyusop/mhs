@@ -16,6 +16,23 @@
 CREATE DATABASE IF NOT EXISTS `services_hero` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `services_hero`;
 
+-- Dumping structure for table services_hero.contact_us
+CREATE TABLE IF NOT EXISTS `contact_us` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL,
+  `seen` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table services_hero.contact_us: ~0 rows (approximately)
+/*!40000 ALTER TABLE `contact_us` DISABLE KEYS */;
+INSERT INTO `contact_us` (`id`, `name`, `email`, `phone`, `message`, `seen`) VALUES
+	(1, 'hannan', 'nan_s96@yahoo.com', '105960585', 'asdfsd', 0);
+/*!40000 ALTER TABLE `contact_us` ENABLE KEYS */;
+
 -- Dumping structure for table services_hero.invoices
 CREATE TABLE IF NOT EXISTS `invoices` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -37,12 +54,15 @@ CREATE TABLE IF NOT EXISTS `invoices` (
   PRIMARY KEY (`id`),
   KEY `FK_invoice_orders` (`order_id`),
   CONSTRAINT `FK_invoice_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table services_hero.invoices: ~1 rows (approximately)
+-- Dumping data for table services_hero.invoices: ~3 rows (approximately)
 /*!40000 ALTER TABLE `invoices` DISABLE KEYS */;
 INSERT INTO `invoices` (`id`, `order_id`, `user_name`, `phone`, `email`, `address`, `date_process`, `service_title`, `service_price`, `add_on_title`, `add_on_price`, `sub_total`, `tax`, `grand_total`, `date_completed`, `comment`) VALUES
-	(4, 1, 'hannan yusop', '105960585', 'nan_s96@yahoo.com', 'jalan pandaruan<br>kpg pahlawan<br>MUKAH,98700,SARAWAK<br>MALAYSIA', '2017-09-18 22:59:28', 'HP REPAIR', '120.00', 'CUCI KOLAM', 1.00, 121.00, 2.50, 123.50, NULL, NULL);
+	(4, 1, 'hannan yusop', '105960585', 'nan_s96@yahoo.com', 'jalan pandaruan<br>kpg pahlawan<br>MUKAH,98700,SARAWAK<br>MALAYSIA', '2017-09-18 22:59:28', 'HP REPAIR', '120.00', 'CUCI KOLAM', 1.00, 121.00, 2.50, 123.50, NULL, NULL),
+	(5, 2, 'hannan yusop', '105960585', 'nan_s96@yahoo.com', 'jalan pandaruan<br>kpg pahlawan<br>MUKAH,98700,SARAWAK<br>MALAYSIA', '2017-09-19 20:11:44', 'PENGGALI KUBUR', '150.00', 'CUCI KRETA', 32.00, 182.00, 3.40, 185.40, NULL, NULL),
+	(6, 1, 'hannan yusop', '105960585', 'nan_s96@yahoo.com', 'jalan pandaruan<br>kpg pahlawan<br>MUKAH,98700,SARAWAK<br>MALAYSIA', '2017-09-19 20:27:11', 'HP REPAIR', '120.00', 'CUCI KOLAM', 1.00, 121.00, 2.50, 123.50, NULL, NULL),
+	(7, 1, 'hannan yusop', '105960585', 'nan_s96@yahoo.com', 'jalan pandaruan<br>kpg pahlawan<br>MUKAH,98700,SARAWAK<br>MALAYSIA', '2017-09-19 20:27:21', 'HP REPAIR', '120.00', 'CUCI KOLAM', 1.00, 121.00, 2.50, 123.50, NULL, NULL);
 /*!40000 ALTER TABLE `invoices` ENABLE KEYS */;
 
 -- Dumping structure for table services_hero.orders
@@ -78,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`id`, `user_id`, `service_id`, `services_add_on_id`, `date`, `time`, `new_date`, `new_time`, `user_note`, `admin_note`, `grand_price`, `tax_price`, `status`, `completed_datetime`, `payment`, `payment_attachment`, `rating`, `rating_note`) VALUES
 	(1, 3, 2, 3, '2017-09-21', '13:00:00', NULL, NULL, '[po[po', NULL, 21.00, 2.50, 3, '2017-09-17 14:37:21', NULL, NULL, 4, 'Terbaik lah service abang  ni. cepat dan padat'),
-	(2, 3, 3, 4, '2017-09-17', '14:58:48', NULL, NULL, 'trtdtd', NULL, 21.00, 3.40, 1, NULL, NULL, NULL, 0, NULL);
+	(2, 3, 3, 4, '2017-09-17', '14:58:48', NULL, NULL, 'trtdtd', 'Not valid/complete information', 21.00, 3.40, 4, NULL, NULL, NULL, 0, NULL);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Dumping structure for table services_hero.services
@@ -96,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `services` (
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
 INSERT INTO `services` (`id`, `title`, `description`, `basic_price`, `qouta`, `status`) VALUES
 	(1, 'REPAIR LEAKED ROOFTOP', '<p>Type of service:</p>\r\n\r\n<ul>\r\n	<li>repair leaked rooftop</li>\r\n	<li>change new rooftop</li>\r\n	<li>re-paint</li>\r\n	<li>others</li>\r\n</ul>\r\n\r\n<p>Whatapps : +60105960754</p>\r\n', 250.00, '10', '1'),
-	(2, 'HP REPAIR', '<p><strong>OUR SERVICE:</strong></p>\r\n\r\n<ol>\r\n	<li>HP</li>\r\n	<li>LAPTOP</li>\r\n	<li>PC</li>\r\n</ol>\r\n\r\n<table border="1" cellpadding="1" cellspacing="1" style="width:500px">\r\n	<tbody>\r\n		<tr>\r\n			<td>Poblem</td>\r\n			<td>Price</td>\r\n		</tr>\r\n		<tr>\r\n			<td>LCD</td>\r\n			<td>RM140</td>\r\n		</tr>\r\n		<tr>\r\n			<td>BOARD</td>\r\n			<td>RM200</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n', 120.00, '10', '1'),
+	(2, 'HP REPAIR', '<p><strong>OUR SERVICE:</strong></p>\r\n\r\n<ol>\r\n	<li>HP</li>\r\n	<li>LAPTOP</li>\r\n	<li>PC</li>\r\n</ol>\r\n\r\n<table border="1" cellpadding="1" cellspacing="1" style="width:500px">\r\n	<tbody>\r\n		<tr>\r\n			<td>Poblem</td>\r\n			<td>Price</td>\r\n		</tr>\r\n		<tr>\r\n			<td>LCD</td>\r\n			<td>RM140</td>\r\n		</tr>\r\n		<tr>\r\n			<td>BOARD</td>\r\n			<td>RM200</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n', 120.00, '10', '2'),
 	(3, 'PENGGALI KUBUR', '-Taat menggali kubur', 150.00, '1', '1'),
 	(4, 'TUKANG MASAK', '-masakan kampung ala-alalalal', 10.00, '10', '1');
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
