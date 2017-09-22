@@ -16,14 +16,18 @@
                     <!-- RoomDetails -->
                     <div id="RoomDetails" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="item  height-full"><img src="images/_03282016103611478_d5e4f548-4e5f-482c-98c3-72c61f111adc.jpg.jpeg" class="img-responsive">
-                            </div>
+                            <?php
+                            $result3 = mysqli_query($conn, "SELECT * FROM service_images WHERE service_id=$row[id]");
+
+                            if (mysqli_num_rows($result3) > 0) {
+                                while($row3 = mysqli_fetch_assoc($result3)) {
+                                    echo "<img src='images/$row3[image]'  class='img-responsive' alt='slide'>";
+                                }
+                            }else{
+                                echo "<img src='images/no-image-found.gif'  class='img-responsive' alt='slide'>";
+                            }
+                            ?>
                         </div>
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#RoomDetails" role="button" data-slide="prev"><i
-                                    class="fa fa-angle-left"></i></a>
-                        <a class="right carousel-control" href="#RoomDetails" role="button" data-slide="next"><i
-                                    class="fa fa-angle-right"></i></a>
                     </div>
                     <!-- RoomCarousel-->
 

@@ -35,16 +35,13 @@
 
                     if (mysqli_num_rows($result3) > 0) {
                         while($row3 = mysqli_fetch_assoc($result3)) {
-                            echo "<div class='item  height-full'><img src='images/$row3[image]'  class='img-responsive' alt='slide'></div>";
+                            echo "<img src='images/$row3[image]'  class='img-responsive' alt='slide'>";
                         }
                     }else{
-                        echo "<div class='item  height-full'><img src='images/no-image-found.gif'  class='img-responsive' alt='slide'></div>";
+                        echo "<img src='images/no-image-found.gif'  class='img-responsive' alt='slide'>";
                     }
                     ?>
                 </div>
-                <!-- Controls -->
-                <a class="left carousel-control" href="#FoodCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                <a class="right carousel-control" href="#FoodCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
             </div>
             <!-- RoomCarousel-->
             <div class="caption">

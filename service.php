@@ -47,7 +47,7 @@
                           <?php
                           if($avg > 0 ){
                               echo "<mark>";
-                              $stars =1;
+                              $stars =0;
                               do{
                                  echo "<span>☆</span>";
                                  $stars++;
