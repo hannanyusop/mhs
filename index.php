@@ -2,17 +2,7 @@
 
 <!-- banner -->
 <div class="banner">    	   
-    <img src="images/photos/banner.jpg"  class="img-responsive" alt="slide">
-    <div class="welcome-message">
-        <div class="wrap-info">
-            <div class="information">
-                <h1  class="animated fadeInDown">Job Service Hero <br><b>MUKAH</b></h1>
-                <p class="animated fadeInUp">Most luxurious hotel of asia with the royal treatments and excellent customer service.</p>                
-            </div>
-            <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>
-        </div>
-    </div>
-</div>
+<img src="images/photos/mukahservicehero.jpg" style="width:100%;height:50%"> class="img-responsive" alt="slide"></div>
 <!-- banner-->
 
 <!-- services -->

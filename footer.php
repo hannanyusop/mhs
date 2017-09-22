@@ -6,14 +6,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-5">
-                    <h4>SERVICE HERO MUKAH</h4>
-                    <p>Tulis apa psal project kamu</p>
+                    <h4> MUKAH SERVICE HERO</h4>
+                    <h4><b>We Can Provide You With SUPERHERO<i>!</i></b></h4>
+                    <p>We have created a fictional service website.We provide three services for all of you, Mobile Maid, Mowing Services and Air Cond Service. </p>
+                    <p class="w3-opacity">&nbsp;</p>
+                    <p>&nbsp;</p>
                 </div>
                  
                  <div class="col-sm-3">
                     <h4>Quick Links</h4>
                     <ul class="list-unstyled">
-                        <li><a href="service.php">Servics Link</a></li>
+                        <li><a href="service.php">Service Link</a></li>
                     </ul>
                 </div>
                  <div class="col-sm-4 subscribe">
