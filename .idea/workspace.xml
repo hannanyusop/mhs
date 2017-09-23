@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81d1eca9-83d1-43d9-a331-20810f583024" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/check-login.php" afterPath="$PROJECT_DIR$/check-login.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,12 +59,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mail_configuration.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mail_configuration.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mailer/mail_configuration.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="13" column="2" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="check-login.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/check-login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="603">
+              <caret line="41" column="83" lean-forward="false" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
+              <folding>
+                <marker date="1506180799874" expanded="true" signature="445:530" ph="SELECT * FRO... users" />
+                <marker date="1506180799874" expanded="true" signature="445:531" ph="SELECT * FRO... users" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,18 +138,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="head.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/head.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding>
-                <marker date="1505830034453" expanded="true" signature="223:242" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -185,7 +185,6 @@
         <option value="$PROJECT_DIR$/admin/controller/service_images.php" />
         <option value="$PROJECT_DIR$/admin/order_view.php" />
         <option value="$PROJECT_DIR$/service-order.php" />
-        <option value="$PROJECT_DIR$/check-login.php" />
         <option value="$PROJECT_DIR$/admin/order-pending.php" />
         <option value="$PROJECT_DIR$/admin/order-reject.php" />
         <option value="$PROJECT_DIR$/admin/order.php" />
@@ -211,6 +210,7 @@
         <option value="$PROJECT_DIR$/reset-password-email.php" />
         <option value="$PROJECT_DIR$/reset-password.php" />
         <option value="$PROJECT_DIR$/mailer/mail_configuration.php" />
+        <option value="$PROJECT_DIR$/check-login.php" />
       </list>
     </option>
   </component>
@@ -420,15 +420,15 @@
       <workItem from="1505922873494" duration="692000" />
       <workItem from="1506048208470" duration="2477000" />
       <workItem from="1506139015930" duration="27000" />
-      <workItem from="1506176747905" duration="2766000" />
+      <workItem from="1506176747905" duration="3077000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119539000" />
+    <option name="totallyTimeSpent" value="119850000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="916" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="916" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -663,17 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/check-login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="44" lean-forward="false" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
-          <folding>
-            <marker date="1505741714753" expanded="true" signature="445:530" ph="SELECT * FRO... users" />
-            <marker date="1505741714753" expanded="true" signature="445:531" ph="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/service.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -866,6 +855,17 @@
         <state relative-caret-position="221">
           <caret line="13" column="2" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/check-login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="41" column="83" lean-forward="false" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
+          <folding>
+            <marker date="1506180799874" expanded="true" signature="445:530" ph="SELECT * FRO... users" />
+            <marker date="1506180799874" expanded="true" signature="445:531" ph="SELECT * FRO... users" />
+          </folding>
         </state>
       </provider>
     </entry>

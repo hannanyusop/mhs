@@ -39,7 +39,7 @@
         }
 
     } else{
-        echo "<script>alert('Invalid Password or Username!');window.location='index.php';</script>";
+        echo "<script>alert('Invalid Password or Username!');window.location='login.php';</script>";
     }
 
 ?>
