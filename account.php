@@ -166,7 +166,7 @@ $status_label = [
                                echo "<td>".$status_label[$row['order_status']]."</td>";
                                echo "<td>";
 
-                               echo "<a href='order-view.php?id=$row[order_id]' class='btn btn-sm btn-info''>View</a>";
+                               echo "<a href='print.php?id=$row[order_id]' class='btn btn-sm btn-info' target='_blank'>View</a>";
                                if($row['order_status'] == 1){
                                    echo "<a href='controller/order.php?action=cancel&id=$row[order_id]' class='btn btn-sm btn-warning''>Cancel</a>";
                                }
@@ -216,16 +216,16 @@ $status_label = [
                                    echo "<form action='controller/order.php' method='post'>";
                                    echo "<input type='hidden' name='action' value='rate'>";
                                    echo "<input type='hidden' name='id' value='$row[order_id]'>";
-                                   echo "<td>
-                                            <select name='rating' class='form-control'>
-                                                <option value='1'><span>☆</span></option>
-                                                <option value='2'><span>☆</span><span>☆</span></option>
-                                                <option value='3'><span>☆</span><span>☆</span><span>☆</span></option>
-                                                <option value='4'><span>☆</span><span>☆</span><span>☆</span><span>☆</span></option>
-                                                <option value='5'><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></option>
+                                   echo "<td>"; ?>
+                                            <select name="rate" class="form-control">
+                                                <option value="1"><span>☆</span></option>
+                                                <option value="2"><span>☆</span><span>☆</span></option>
+                                                <option value="3"><span>☆</span><span>☆</span><span>☆</span></option>
+                                                <option value="4"><span>☆</span><span>☆</span><span>☆</span><span>☆</span></option>
+                                                <option value="5"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></option>
                                             </select>
-                                        </td>";
-                                   echo "<td><input type='text' name='rating_note'></td>";
+                                        </td>
+                           <?php   echo "<td><input type='text' name='rating_note'></td>";
                                }else{
                                    echo "<td>";
 
