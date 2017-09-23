@@ -40,6 +40,7 @@
                     <input type="text" name="email" placeholder="Email" />
                     <input type="password" name="password" placeholder="Password" />
                     <button type="submit" class="btn_login" onclick="cambiar_login()">LOGIN</button>
+                    <a href="reset-password.php" target="_blank">Forgot Password?</a>
                 </form>
 
                 <form action="controller/user.php" method="post" class="cont_form_sign_up">
