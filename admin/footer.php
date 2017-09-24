@@ -13,6 +13,60 @@
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+        setInterval(function(){
+            load_last_notification();
+            getTotalUnread();
+        }, 3000);
+
+        function load_last_notification()
+        {
+            $.ajax({
+                url:"fetch.php?type=msg",
+                method:"POST",
+                success:function(data)
+                {
+                    $('.contact_us').html(data);
+                }
+            })
+        }
+
+        function getTotalUnread()
+        {
+            $.ajax({
+                url:"fetch.php?type=total",
+                method:"POST",
+                success:function(data)
+                {
+                    $('.total_msg').html(data);
+                }
+            })
+        }
+
+        $('#comment_form').on('submit', function(event){
+            event.preventDefault();
+            if($('#subject').val() != '' && $('#comment').val() != '')
+            {
+                var form_data = $(this).serialize();
+                $.ajax({
+                    url:"insert.php",
+                    method:"POST",
+                    data:form_data,
+                    success:function(data)
+                    {
+                        $('#comment_form')[0].reset();
+                    }
+                })
+            }
+            else
+            {
+                alert("Both Fields are Required");
+            }
+        });
+    });
+</script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -22,8 +76,6 @@
 <!-- Sparkline -->
 <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap  -->
-<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- SlimScroll -->
 <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS -->
@@ -42,3 +94,4 @@
 <!-- DataTables -->
 <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
