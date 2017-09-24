@@ -13,11 +13,25 @@
 
         switch ($action) {
             case 'register' :
+                //status =  0 is inactive => need email activation
+                function rand_string( $length )
+                {
+                    $chars = "1234567890qwertyuipasdfghjklzxcvbnm1234567890";
+                    return substr(str_shuffle($chars),0,$length);
+                }
+                $key=rand_string(30);
 
-                $sql = "INSERT INTO users (email,level,status,password) VALUES ('$_POST[email]','USER','1','$_POST[password]')";
+                $sql = "INSERT INTO users (email,level,status,password,activation_key) VALUES ('$_POST[email]','USER','0','$_POST[password]','$key')";
 
                 if (mysqli_query($conn, $sql)) {
-                    echo "<script>alert('Congratulations! Registration successfully.Please register to update your account.');window.location='../login.php';</script>";
+                    include_once ('../register-email.php');
+                    if($mail->Send()) {
+                        echo "<script>alert('Congratulations! You\'re now a part of our team!.Please check your email to activate your account.');window.location='../login.php';</script>";
+
+                    }else{
+                        echo "<script>alert('Error! Please check your internet connection!');window.location='../login.php';</script>";
+
+                    }
                 } else {
                     //echo "<script>alert('Error while inserting data!');//window.location='../user-$action.php';</script>";
                     echo "<script>alert('Registration failed! Email already exist!');window.location='../login.php';</script>";
