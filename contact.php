@@ -21,18 +21,18 @@
 			<div class="spacer">   		
 
                 <h4>Write to us</h4>
-                <form role="form">
+                <form role="form" action="controller/contact-us.php?action=add" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="Name">
+                        <input type="text"  name="name" class="form-control" id="name" placeholder="Name">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        <input type="email" email="email" class="form-control" id="email" placeholder="Enter email">
                     </div>
                     <div class="form-group">
-                        <input type="phone" class="form-control" id="phone" placeholder="Phone">
+                        <input type="phone" phone="phone" class="form-control" id="phone" placeholder="Phone">
                     </div>
                     <div class="form-group">
-                        <textarea type="email" class="form-control"  placeholder="Message" rows="4"></textarea>
+                        <textarea name="message" class="form-control" rows="4"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-default">Send</button>
