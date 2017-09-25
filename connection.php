@@ -5,7 +5,7 @@ if ( $_SERVER['REQUEST_METHOD']=='GET' && realpath(__FILE__) == realpath( $_SERV
     die( header( '404.php' ) );
 
 }
-
+$domain = "mhs.dev";
 $servername = "localhost";
 $username = "root";
 $password = "";
