@@ -135,7 +135,7 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $sql = "SELECT *,a.id as order_id,a.status as order_status FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id";
+                                $sql = "SELECT *,a.id as order_id,a.status as order_status FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id LIMIT 10";
 
                                 $result = mysqli_query($conn, $sql);
                                 while($row = mysqli_fetch_assoc($result)) {

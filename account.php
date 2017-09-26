@@ -129,12 +129,12 @@ $status_label = [
 
                                <div class="box-body col-lg-4">
                                    <div class="form-group">
-                                       <input type="password_new" name="password" placeholder="Password" class="form-control" required>
+                                       <input type="password_new" name="password1" placeholder="New Password" class="form-control" required>
                                    </div>
                                </div>
 
                                <div class="box-body col-lg-4">
-                                   <input type="password_new1" name="password1" placeholder="Confirm Password" class="form-control" required>
+                                   <input type="password_new1" name="password2" placeholder="Confirm Password" class="form-control" required>
                                </div>
 
                            </div>

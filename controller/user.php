@@ -68,6 +68,33 @@
                 }
                 break;
 
+            case 'update-password' :
+                if(isset($_POST['password'])){
+                    $result = mysqli_query($conn, "SELECT * FROM users WHERE id = $_SESSION[user_id] LIMIT 1");
+                     while($row = mysqli_fetch_assoc($result)) {
+                         $old_password = $row['password'];
+                      }
+                    if($_POST['password']!=$old_password){
+                        echo "<script>alert('Old Password not match!');window.location='../account.php';</script>";
+                    }else{
+                        if($_POST['password1']!=$_POST['password2']){
+                            echo "<script>alert('New Password and Confirm Password not match');window.location='../account.php';</script>";
+                        }else{
+                            $sql = "UPDATE users SET password = '$_POST[password1]' WHERE id = $_SESSION[user_id]";
+                            if (mysqli_query($conn, $sql)) {
+                                echo "<script>alert('Password Updated!');window.location='../account.php';</script>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                //echo "<script>alert('Error while deleting data!');window.location='../account.php';</script>";
+                            }
+                        }
+                    }
+
+
+                }else{
+                    echo "<script>window.location='../404.php'</script>";
+                }
+
             default :
                 echo "<script>window.location='../404.php'</script>";
         }
