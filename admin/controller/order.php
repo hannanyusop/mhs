@@ -23,15 +23,19 @@
                     $sub_total = $row['basic_price'] + $row['sevices_add_on_price'] ;
                     $grand_total = $sub_total + $row['tax_price'];
 
+                    $email = $row['email'];
+                    $name = $row['first_name']. " " .$row['last_name'];
+
                     $sql = "INSERT INTO invoices (order_id, user_name, phone, email,address,date_process,service_title,service_price,add_on_title,add_on_price,sub_total,tax,grand_total)
                             VALUES ($_GET[id], '$user_name', '$row[phone]', '$row[email]', '$address', NOW(), '$row[service_title]', '$row[basic_price]', '$row[services_add_on_title]', '$row[sevices_add_on_price]', '$sub_total', '$row[tax_price]', '$grand_total');
 ";
                     if (mysqli_query($conn, $sql)) {
-
                         //update order status 3 (Approved) if data successfully inserted to invoices table
                         mysqli_query($conn, "UPDATE orders SET status = 3 WHERE id = $_GET[id]");
 
-                        echo "<script>alert('Successfully added!');window.location='../order-view.php?id=$_GET[id]';</script>";
+                        include_once ('approve-order-email.php');
+
+                        echo "<script>alert('Successfully create invoice!');window.location='../order-view.php?id=$_GET[id]';</script>";
                     } else {
                         //echo "<script>alert('Error while inserting data!');//window.location='../user-$action.php';</script>";
                         echo "Error: " . $sql . "<br>" . mysqli_error($conn);

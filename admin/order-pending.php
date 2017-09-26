@@ -55,10 +55,10 @@
                                   $result = mysqli_query($conn, $sql);
                                       while($row = mysqli_fetch_assoc($result)) {
 
-                                          echo "<td>".$row['first_name']." ".$row['last_name']."</td>";
+                                          echo "<tr><td>".$row['first_name']." ".$row['last_name']."</td>";
                                           echo "<td>".$row['service_title']."-".$row['add_on_title']."(RM ".$row['price'].")</td>";
                                           echo "<td>".$row['time'].' '.$row['date']."</td>";
-                                          echo"<td><a href='order-view.php?id=".$row['order_id']."' class='btn btn-sm btn-info''>View</a></td>";
+                                          echo"<td><a href='order-view.php?id=".$row['order_id']."' class='btn btn-sm btn-info''>View</a></td></tr>";
                                       }
                                   ?>
                               </tbody>
