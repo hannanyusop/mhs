@@ -36,7 +36,7 @@
             <!-- RoomCarousel-->
             <div class="caption">
                 <?=$row['title'] ?> <span class="label label-primary">RM<?= $row['basic_price'] ?></span>
-                <a href="gallery.php" class="pull-right"><i class="fa fa-edit"></i></a>
+                <a href="service-details.php?id=<?=$row['id']?>" class="pull-right"><i class="fa fa-edit"></i></a>
             </div>
         </div>
 
