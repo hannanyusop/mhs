@@ -7,7 +7,7 @@
 <div class="row">
 
     <?php
-        $sql = "SELECT *,a.id as service_id FROM services as a LEFT JOIN orders as b ON b.service_id=a.id ORDER BY a.id DESC";
+        $sql = "SELECT *,a.id as service_id FROM services as a ORDER BY a.id DESC";
         $result = mysqli_query($conn, $sql);
         while($row = mysqli_fetch_assoc($result)) {
 

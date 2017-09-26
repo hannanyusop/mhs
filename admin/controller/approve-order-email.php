@@ -11,10 +11,11 @@ $mail = new PHPMailer();
 $emailBody = "
 <div>
 Hi $name,<br>
-	<p>
+	<br>
 		We\'ve respond to your order:<u> ($row[title])</u>. please check your status by login<br>
 		 on <a href='$domain/login.php'>$domain</a>. For any enquiries feel free to ask by completing <br>
 		 <a href='$domain/contact.php'>this</a> form.<br>
+		 <br>STATUS: $status</br><br><br>
 		 <br>Thank You,<br>
 		 <b>Manangement Service Hero Mukah</b>
 		 <br><u>+03-557432/no-reply@msh.com</u>

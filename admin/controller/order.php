@@ -25,6 +25,7 @@
 
                     $email = $row['email'];
                     $name = $row['first_name']. " " .$row['last_name'];
+                    $status = 'APPROVE';
 
                     $sql = "INSERT INTO invoices (order_id, user_name, phone, email,address,date_process,service_title,service_price,add_on_title,add_on_price,sub_total,tax,grand_total)
                             VALUES ($_GET[id], '$user_name', '$row[phone]', '$row[email]', '$address', NOW(), '$row[service_title]', '$row[basic_price]', '$row[services_add_on_title]', '$row[sevices_add_on_price]', '$sub_total', '$row[tax_price]', '$grand_total');
@@ -54,6 +55,14 @@
                 break;
 
             case 'reject' :
+                $sql = "SELECT *,a.id as order_id,c.title as service_title,c.basic_price as service_basic_price,d.title as services_add_on_title,d.price as sevices_add_on_price  FROM orders as a LEFT JOIN users as b ON b.id=a.user_id LEFT JOIN services as c ON c.id=a.service_id LEFT JOIN services_add_on as d ON d.id=a.services_add_on_id WHERE a.id = '$_POST[order_id]'";
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_assoc($result)) {
+                    $email = $row['email'];
+                    $name = $row['first_name']. " " .$row['last_name'];
+                    $status = 'REJECTED';
+                    include_once ('approve-order-email.php');
+                }
                 //status = 4 is rejected
                 $sql = "UPDATE orders SET status = 4,admin_note = '$_POST[admin_note]' WHERE id = $_POST[order_id]";
                 if (mysqli_query($conn, $sql)) {
