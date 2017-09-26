@@ -7,9 +7,9 @@
 <?php include_once('aside.php'); ?>
 <?php
     $status_label = [
-        1 => '<span class="label label-warning">Inactive</span>',
-        2 => '<span class="label label-success">Active</span>',
-        3 => '<span class="label label-danger">Banned</span>',
+        0 => '<span class="label label-warning">Inactive</span>',
+        1 => '<span class="label label-success">Active</span>',
+        2 => '<span class="label label-danger">Banned</span>',
     ];
 ?>
   <!-- Content Wrapper. Contains page content -->

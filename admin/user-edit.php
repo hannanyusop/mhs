@@ -90,8 +90,8 @@
                                     <div class="col-lg-6">
                                         <label>Status</label>
                                         <select name="status" class="form-control select2" style="width: 100%;" >
-                                            <option value="1" <?php if($row['status'] =="1"){echo 'checked';} ?> >DEACTIVE</option>
-                                            <option value="2" <?php if($row['status'] =="2"){echo 'checked';} ?>>ACTIVE</option>
+                                            <option value="1" <?php if($row['status'] =="2"){echo 'checked';} ?> >BANNED</option>
+                                            <option value="2" <?php if($row['status'] =="1"){echo 'checked';} ?>>ACTIVE</option>
                                         </select>
                                     </div>
                                 </div>
