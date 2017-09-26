@@ -56,9 +56,9 @@
                 </form>
 
             </div>
-
         </div>
     </div>
+    <a href="index.php" class="btn_login">Back</a>
 </div>
 <style>
     /* ------------------------------------ Click on login and Sign Up to  changue and view the effect
