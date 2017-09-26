@@ -13,8 +13,21 @@
 
         switch ($action) {
             case 'add' :
+                if($_POST['day'] < 10){
+                    $day = "0".$_POST['day'];
+                }else{
+                    $day = $_POST['day'];
+                }
+
+                if($_POST['month'] < 10){
+                    $month = "0".$_POST['month'];
+                }else{
+                    $month = $_POST['month'];
+                }
+                $date = $_POST['year']."-".$month."-".$day;
+                $time = $_POST['hrs'].":".$_POST['min'].":00";
                 $sql = "INSERT INTO orders (user_id,service_id,services_add_on_id,date,time,user_note,grand_price,status) 
-                        VALUES ('$_POST[user_id]','$_POST[service_id]','$_POST[services_add_on_id]','$_POST[date]','$_POST[time]','$_POST[user_note]','$_POST[grand_price]',1)";
+                        VALUES ('$_POST[user_id]','$_POST[service_id]','$_POST[services_add_on_id]','$date','$time','$_POST[user_note]','0',1)";
 
                 if (mysqli_query($conn, $sql)) {
                     echo "<script>alert('Thank You! Our staff will process your order.');window.location='../login.php';</script>";
